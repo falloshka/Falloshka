@@ -701,21 +701,21 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       try {
         const res = await fetch(
-          "https://damp-cherry-e7a4.falloshka.workers.dev",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              name,
-              birth,
-              topic,
-              message,
-              lang, // ✅ DİL BURADA GİDİYOR
-            }),
-          }
-        );
+        "https://falloshka-astro-backend.vercel.app/api/astro",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            birth,
+            topic,
+            message,
+            lang,
+          }),
+        }
+      );
 
         if (!res.ok) {
           throw new Error("Worker error");
