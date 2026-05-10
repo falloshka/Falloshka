@@ -1,0 +1,642 @@
+* {
+  box-sizing: border-box;
+  font-family: "Georgia", serif;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1b1033, #0c0816);
+  color: #f1f1f3;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;        /* 🔴 SABİTLER */
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 1000;          /* 🔴 HER ŞEYİN ÜSTÜNDE */
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+
+  /*background: rgba(20, 10, 40, 0.85);  ✅ hafif şeffaf */
+  backdrop-filter: blur(6px);         /* ✅ cam efekti */
+}
+
+
+.brand {
+  font-size: 26px;
+  letter-spacing: 3px;
+}
+
+nav a {
+  margin: 0 12px;
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #ffd700;
+}
+
+select {
+  background: #201234;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+/* HERO */
+.page-home .hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 10%;
+  background: url("hero-space.png") no-repeat center/cover;
+}
+
+.page-home .hero-content {
+  max-width: 520px;
+  background: rgba(40,20,70,0.6);
+  padding: 40px;
+  border-radius: 18px;
+}
+
+.page-home .hero h1 {
+  font-size: 46px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.page-home .hero p {
+  opacity: 0.9;
+  margin-bottom: 28px;
+}
+
+/* BUTTON BASE – button + a SAME LOOK */
+.primary-btn {
+  display: inline-flex;              /* 🔴 EN ÖNEMLİ SATIR */
+  align-items: center;
+  justify-content: center;
+
+  background: #ffd700;
+  color: #0f0f17;
+
+  padding: 14px 28px;
+  border-radius: 999px;
+
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;                     /* 🔴 text dikey ortalama */
+
+  text-decoration: none;              /* <a> underline temizlenir */
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+/* SMALL VARIANT */
+.primary-btn.small {
+  padding: 12px 26px;
+  font-size: 14px;
+}
+
+/* HOVER */
+.primary-btn:hover {
+  background: #ffea61;
+  transform: translateY(-1px);
+}
+
+/* EXPERIENCE */
+.page-home .experience {
+  padding: 100px 10%;
+}
+
+.page-home .experience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.page-home .card-image {
+  width: 100%;
+  max-width: 360px;
+  margin: auto;
+}
+
+.page-home .card-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 0 40px rgba(150, 90, 255, 0.4);
+}
+
+.page-home .experience-text h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.page-home .note {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* CARDS */
+.page-tarot .cards {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 60px 10%;
+}
+
+
+/* === TAROT CARD – TRUE FLIP SYSTEM === */
+
+.page-tarot .tarot-card {
+  width: 180px;
+  height: 300px;
+  perspective: 1000px; /* 3D derinlik */
+  perspective-origin: right center;
+  cursor: pointer;
+}
+
+/* Dönen katman */
+.page-tarot .card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  /* transition: transform 0.9s ease; */
+   transition: transform 0.9s cubic-bezier(.4, .0, .2, 1); /* daha yönlü akış */
+}
+
+/* Kart açıldığında döner */
+.page-tarot .tarot-card.open .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Ortak yüz ayarı */
+.page-tarot .card-front,
+.page-tarot .card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  backface-visibility: hidden; /* 🔴 kritik */
+  overflow: hidden;
+}
+
+/* Kart arkası */
+.page-tarot .card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Kart ön yüzü */
+.page-tarot .card-front {
+  transform: rotateY(180deg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 60px rgba(255, 215, 0, 0.8);
+}
+
+
+/* RESULT HOME*/
+.page-home .result {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.page-home .result h2 {
+  font-size: 34px;
+  margin-bottom: 40px;
+}
+
+.page-home .result-box {
+  max-width: 700px;
+  margin: auto;
+  padding: 36px;
+  border-radius: 18px;
+  border: 2px solid #7b3fe4;
+  background: rgba(40,15,80,0.5);
+}
+/* RESULT TAROT*/
+.page-tarot .result {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.page-tarot .result h2 {
+  font-size: 34px;
+  margin-bottom: 40px;
+}
+
+.page-tarot .result-box {
+  max-width: 700px;
+  margin: auto;
+  padding: 36px;
+  border-radius: 18px;
+  border: 2px solid #7b3fe4;
+  background: rgba(40,15,80,0.5);
+}
+/* RESULT ASTRO*/
+.page-astro .result {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.page-astro .result h2 {
+  font-size: 34px;
+  margin-bottom: 40px;
+}
+
+.page-astro .result-box {
+  max-width: 700px;
+  margin: auto;
+  padding: 36px;
+  border-radius: 18px;
+  border: 2px solid #7b3fe4;
+  background: rgba(40,15,80,0.5);
+}
+
+
+/* FOOTER */
+footer {
+  padding: 32px;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.7;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* READING HERO */
+.reading-hero {
+  text-align: center;
+  padding: 80px 10%;
+}
+
+.reading-hero h1 {
+  font-size: 42px;
+}
+
+.reading-hero p {
+  max-width: 520px;
+  margin: auto;
+  opacity: 0.85;
+}
+
+/* FORM */
+.page-astro .reading-form {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 80px;
+}
+
+.page-astro .form-box {
+  background: rgba(40,15,80,0.6);
+  padding: 32px;
+  width: 420px;
+  border-radius: 18px;
+}
+
+.page-astro .form-box h3 {
+  margin-bottom: 20px;
+}
+
+.page-astro .form-box label {
+  display: block;
+  margin-top: 14px;
+  font-size: 13px;
+}
+
+.page-astro .form-box input,
+.page-astro .form-box textarea {
+  width: 100%;
+  padding: 10px;
+  background: #1c0f30;
+  border: 1px solid #ffd700;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.page-astro .dob {
+  display: flex;
+  gap: 10px;
+}
+
+/* RADIO GROUP – genel blok */
+.page-astro .radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;                 /* 🔽 Daha yakın: 14px → 8px */
+  margin-top: 8px;
+}
+
+/* SATIR */
+.page-astro .custom-radio {
+  display: flex;
+  align-items: center;      /* ✅ Yazıyla tam hizalama */
+  gap: 8px;                /* 🔽 Daha yakın: 10px → 8px */
+  cursor: pointer;
+}
+
+/* GERÇEK RADIO'YU GİZLE */
+.page-astro .custom-radio input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ÇİZİLEN DAİRE (ANA KISIM) */
+.page-astro .radio-circle {
+  width: 16px;                         /* 🔽 Bir tık daha zarif */
+  height: 16px;
+  border: 2px solid #d4af37;
+  border-radius: 50%;                  /* ✅ TAM DAİRE */
+  box-sizing: border-box;
+  position: relative;
+  flex-shrink: 0;                      /* 🔴 ÇIZGI SORUNUNU KÖKTEN ÇÖZER */
+}
+
+/* SEÇİLİNCE İÇ NOKTA */
+.page-astro .custom-radio input[type="radio"]:checked + .radio-circle::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #d4af37;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* YAZI */
+.page-astro .radio-text {
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+/* HOVER */
+.page-astro .custom-radio:hover .radio-circle {
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+}
+
+/* 🔥 FORM LABEL KURALINI RADIO İÇİN EZ */
+.page-astro .form-box .custom-radio {
+  display: flex !important;        /* ✅ block'u ezer */
+  align-items: center;
+  gap: 10px;                        /* ✅ radio – yazı arası TEMİZ */
+  margin-top: 0 !important;         /* ✅ yukarıdan itilmeyi kaldır */
+}
+
+.page-astro .radio-text {
+  margin-left: 2px;
+}
+/* ----------------------------------- */
+.page-astro .primary-btn.full {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* RESULT */
+.page-astro .result-box {
+  border: 2px solid #7b3fe4;
+  background: rgba(40,15,80,0.5);
+}
+
+
+/* Hover efekti */
+.page-tarot .card-name-btn:hover {
+  background: rgba(80, 30, 140, 0.8);
+  box-shadow:
+    0 0 14px rgba(255, 215, 0, 0.75),
+    inset 0 0 10px rgba(255, 215, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Active (basılı tutma hissi) */
+.page-tarot .card-name-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 0 6px rgba(255, 215, 0, 0.5);
+}
+
+/* =========================================
+   MODAL (Popup)
+========================================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 5, 30, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: rgba(40, 15, 80, 0.95);
+  border: 2px solid #d4af37;
+  border-radius: 18px;
+  padding: 30px;
+  max-width: 420px;
+  text-align: center;
+  color: #f1f1f3;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.45);
+}
+
+.modal-content h3 {
+  color: #ffd700;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+
+.modal-content p {
+  font-size: 15px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #ffd700;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* =========================================
+   CARD NAME BUTTONS (Alt Bölüm)
+========================================= */
+
+.page-tarot .card-names {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 20px;
+}
+
+.page-tarot .card-name-btn {
+  min-width: 160px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(40, 15, 80, 0.75);
+  border: 1.5px solid #d4af37;
+  color: #ffd700;
+  font-family: "Georgia", serif;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+
+  box-shadow:
+    0 0 10px rgba(212, 175, 55, 0.35),
+    inset 0 0 6px rgba(255, 215, 0, 0.15);
+
+  transition: all 0.25s ease;
+}
+
+.page-tarot .card-name-btn:hover {
+  background: rgba(80, 30, 140, 0.85);
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.75);
+  transform: translateY(-1px);
+}
+
+.page-tarot .card-name-btn.hidden {
+  visibility: hidden; /* yerini korur ama görünmez */
+}
+
+/* ✅ TAROT BACK CARD - FALLBACK IMAGE */
+.page-tarot .tarot-card img.card-fallback {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* 🔴 ASIL ÇÖZÜM */
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+/* Draw Your Cards – üstte ama full olmayan CTA */
+.page-tarot .draw-cta {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 30px;
+}
+
+.page-tarot .draw-cta .primary-btn {
+  padding: 14px 32px;
+  font-size: 14px;
+  width: auto;        /* ✅ full davranışı engellenir */
+  max-width: none;
+}
+
+/* Tarot card shake animation */
+@keyframes tarotShake {
+  0%   { transform: translateX(0); }
+  15%  { transform: translateX(-6px) rotate(-1deg); }
+  30%  { transform: translateX(6px) rotate(1deg); }
+  45%  { transform: translateX(-5px) rotate(-1deg); }
+  60%  { transform: translateX(5px) rotate(1deg); }
+  75%  { transform: translateX(-3px) rotate(0deg); }
+  100% { transform: translateX(0); }
+}
+
+/* Shake state */
+.page-tarot .tarot-card.shaking {
+  animation: tarotShake 0.45s ease-in-out;
+}
+
+/* =========================
+   TAROT SMOKE EFFECT (NON-BLOCKING)
+========================= */
+
+.page-tarot .tarot-card {
+  position: relative;
+}
+
+/* Smoke overlay – DOES NOT block image */
+.page-tarot .card-smoke {
+  position: absolute;
+  inset: -15%;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255,255,255,0.35), transparent 45%),
+    radial-gradient(circle at 70% 60%, rgba(255,255,255,0.25), transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2), transparent 55%);
+
+  opacity: 0;
+  pointer-events: none;
+
+  /* 🔑 CRITICAL PART */
+  mix-blend-mode: screen;   /* ✅ üstte ama maskelemez */
+  filter: blur(14px);
+
+  z-index: 1;               /* ✅ card-inner'ın ALTINDA */
+}
+
+/* card-inner flip yapıyor, üstte kalmalı */
+.page-tarot .card-inner {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes smokeFadeSafe {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+/* Smoke animation */
+.page-tarot .tarot-card.smoke .card-smoke {
+  animation: smokeFadeSafe 0.7s ease-out forwards;
+}
+
+/* =========================
+   ASTROLOGY VISUAL SECTION
+========================= */
+
+.page-astro .astro-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 15px 30px;
+}
+
+.page-astro .astro-visual img {
+  max-width: 100%;
+  width: 900px;          /* büyük ama taşmıyor */
+  height: auto;
+  border-radius: 12px;
+
+  /* Hafif mistik dokunuş */
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.35),
+    0 0 80px rgba(160,90,255,0.15);
+}
