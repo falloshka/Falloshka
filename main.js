@@ -60,6 +60,7 @@ const translations = {
     readingResultNote:
       "Remember, this reading reflects possibilities, not certainties.",
     astroLoading: "Reading the cosmic currents...",
+    astroError: "The astral connection is momentarily unclear. Please try again.",
     tarotShuffleBtn: "Shuffle Cards",
     
     tarotLoading: "Interpreting the energies of the cards...",
@@ -127,6 +128,7 @@ const translations = {
     readingResultNote:
       "Diese Lesung zeigt Möglichkeiten, keine Gewissheiten.",
     astroLoading: "Die kosmischen Strömungen werden gelesen...",
+    astroError: "Die astrale Verbindung ist derzeit unklar. Bitte versuche es erneut.",
     tarotShuffleBtn: "Karten mischen",
 
     tarotLoading: "Die Energien der Karten werden gedeutet...",
@@ -195,6 +197,8 @@ const translations = {
     readingResultNote:
       "Ovo tumačenje prikazuje mogućnosti, ne sigurnosti.",
     astroLoading: "Čitaju se kosmičke energije...",
+    astroError: "Astralna veza trenutno nije jasna. Molimo pokušaj ponovo.",
+
     tarotShuffleBtn: "Promešaj karte",
     
     tarotLoading: "Energije karata se tumače...",
@@ -262,7 +266,7 @@ const translations = {
     readingResultNote:
       "Tento výklad zobrazuje možnosti, nie istoty.",
     astroLoading: "Čítajú sa kozmické prúdy...",
-
+    astroError: "Astrálne spojenie je momentálne nejasné. Skús to prosím znova.",
     tarotShuffleBtn: "Zamiešať karty",
     tarotLoading: "Interpretujem energie kariet...",
     tarotError:"Energie kariet sú momentálne nejasné. Skús to prosím znova.",
@@ -273,7 +277,7 @@ const translations = {
 
   tr: {
     navHome: "Ana Sayfa",
-    navReading: "Tarot Falın",
+    navTarot: "Tarot Falın",
     navAbout: "Hakkında",
 
     homeHeroTitle: "İçsel Gizemlerini Keşfet",
@@ -324,6 +328,7 @@ const translations = {
     readingResultNote:
       "Bu fal ihtimalleri yansıtır.",
     astroLoading: "Kozmik akışlar okunuyor...",
+    astroError: "Astral bağlantı şu anda net değil. Lütfen tekrar dene.",
     tarotShuffleBtn: "Kartları Karıştır",
     
     tarotLoading: "Kartların enerjileri yorumlanıyor...",
@@ -713,7 +718,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (astroBtn && resultEl) {
     astroBtn.addEventListener("click", async (e) => {
       e.preventDefault();
-
+      const lang = localStorage.getItem("lang") || "en";
       resultEl.dataset.dynamic = "true";
       resultEl.textContent = translations[lang]?.astroLoading || "";
 
@@ -730,7 +735,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const message =
         document.getElementById("userMessage")?.value.trim() || "";
 
-      const lang = localStorage.getItem("lang") || "en";
+      
 
       if (!name || !topic) {
         resultEl.textContent =
@@ -763,8 +768,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const data = await res.json();
         resultEl.textContent = data.result;
       } catch (err) {
-        resultEl.textContent =
-          "The astral connection is momentarily unclear. Please try again.";
+        resultEl.textContent = translations[lang]?.astroError || "";
         console.error(err);
       }
     });
