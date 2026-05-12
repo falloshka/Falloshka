@@ -404,46 +404,7 @@ function initLanguage() {
 
   }
 }
-
-/* ==================================================
-   DAILY CARD ENGINE
-================================================== */
-
-let dailyCardSelected = false;
-
-function initDailyCard() {
-  loadTarotCards().then(() => {
-    drawCards(3);
-    renderDailyCards();
-  });
-}
-
-function renderDailyCards() {
-  const cards = document.querySelectorAll(".tarot-card");
-  const lang = localStorage.getItem("lang") || "en";
-
-  cards.forEach((cardEl, index) => {
-    const card = selectedCards[index];
-    if (!card) return;
-
-    cardEl.addEventListener("click", () => {
-      if (dailyCardSelected) return;
-
-      dailyCardSelected = true;
-      cardEl.classList.add("open");
-
-      const front = cardEl.querySelector(".card-front");
-      if (front) front.style.backgroundImage = `url(${card.image})`;
-
-      generateDailyCardReading(card);
-      
-      // diğer kartları kapat
-      cards.forEach(c => {
-        if (c !== cardEl) c.classList.add("disabled");
-      });
-    });
-  });
-}
+let dailyCardLocked = false;
 
 /* ==================================================
    TAROT ENGINE
@@ -479,6 +440,51 @@ function renderCards() {
 
     // ✅ 2) YENİ VE TEMİZ KARTA EVENT EKLE
     cleanCard.addEventListener("click", () => {
+
+      /* ===============================
+        DAILY CARD LOGIC
+      =============================== */
+      if (document.body.classList.contains("page-daily")) {
+
+        // 🔒 İlk karttan sonra KİLİT
+        if (dailyCardLocked) return;
+        dailyCardLocked = true;
+
+        // kartı aç
+        cleanCard.classList.add("open");
+
+        const front = cleanCard.querySelector(".card-front");
+        if (front) {
+          front.style.backgroundImage = `url(${card.image})`;
+        }
+
+        // ✅ SADECE BU KARTIN İSMİ
+        const btn = nameButtons[index];
+        btn.textContent = card.name[lang] || card.name.en;
+        btn.classList.remove("hidden");
+        btn.onclick = () => openModal(card);
+
+        // ✅ GÜNLÜK YORUM (daily.js)
+        generateDailyCardReading(card);
+        
+        // ✅ DİĞER KARTLARI PASİF YAP (KRİTİK)
+        document.querySelectorAll(".tarot-card").forEach(c => {
+          if (c !== cleanCard) {
+            c.classList.add("disabled");
+            c.style.pointerEvents = "none";
+          }
+        });
+
+
+        return; // ❗ tarot-reading logic’e ASLA düşme
+      }
+
+
+      /* ===============================
+        TAROT READING (ESKİ HALİ)
+      =============================== */
+
+
       if (cleanCard.classList.contains("open")) return;
       
       // 🔮 Duman efekti
@@ -580,7 +586,7 @@ async function generateDailyCardReading(card) {
 
   try {
     const res = await fetch(
-      "https://falloshka-astro-backend.vercel.app/api/daily-tarot",
+      "https://falloshka-astro-backend.vercel.app/api/daily",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -704,7 +710,11 @@ function resetTarot() {
 
   // 5️⃣ State sıfırla
   opened = [false, false, false];
-  
+  dailyCardLocked = false; // 🔓 kilit açılır
+  document.querySelectorAll(".tarot-card").forEach(c => {
+    c.classList.remove("disabled");
+    c.style.pointerEvents = "auto";
+  });
 
   // 6️⃣ ✅ YENİ kartları GERÇEKTEN karıştır
   drawCards(3);
@@ -828,14 +838,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   }
-  /* ===============================
-    DAILY CARD (GÜNÜN KARTI)
-  =============================== */
-
-  if (document.body.classList.contains("page-daily")) {
-    initDailyCard();
-  }
-
 
 }
 
