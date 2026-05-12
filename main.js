@@ -6,6 +6,7 @@ const translations = {
   en: {
     /* NAV */
     navHome: "Home",
+    navDaily: "Daily Card",
     navTarot: "Tarot Reading",
     navAstro: "Astrological Reading",
     navAbout: "About",
@@ -76,6 +77,7 @@ const translations = {
   de: {
     /* NAV */
     navHome: "Start",
+    navDaily: "Tageskarte",
     navTarot: "Tarot-Lesung",
     navAstro: "Astrologische Lesung",
     navAbout: "Über",
@@ -148,6 +150,7 @@ const translations = {
   sr: {
     /* NAV */
     navHome: "Početna",
+    navDaily: "Karta dana",
     navTarot: "Tarot tumačenje",
     navAstro: "Astrološko tumačenje",
     navAbout: "O nama",
@@ -221,6 +224,7 @@ const translations = {
   sk: {
     /* NAV */
     navHome: "Domov",
+    navDaily: "Denná karta",
     navTarot: "Tarotový výklad",
     navAstro: "Astrologický výklad",
     navAbout: "O nás",
@@ -289,7 +293,9 @@ const translations = {
 
   tr: {
     navHome: "Ana Sayfa",
+    navDaily: "Günün Kartı",
     navTarot: "Tarot Falın",
+    navAstro: "Astroloji Falın",
     navAbout: "Hakkında",
 
     homeHeroTitle: "İçsel Gizemlerini Keşfet",
