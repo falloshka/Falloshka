@@ -26,6 +26,8 @@ const translations = {
     homeResultText:
       "Your reading will appear here once the cards are drawn.",
 
+    dailyHeroTitle: "Choose Your Card of the Day",
+    dailyHeroText: "Focus your intention and intuitively select one card to reveal today’s energy.",
     /* READING (reading.html) */
     readingHeroTitle: "Reveal Your Path",
     readingHeroText:
@@ -93,6 +95,9 @@ const translations = {
     homeResultTitle: "Deine Himmlische Geschichte",
     homeResultText:
       "Deine Legung erscheint hier, sobald die Karten gezogen wurden.",
+
+    dailyHeroTitle: "Wähle deine Karte des Tages",
+    dailyHeroText:"Richte deine Absicht aus und wähle intuitiv eine Karte, um die heutige Energie zu enthüllen.",
 
     /* READING (reading.html) */
     readingHeroTitle: "Enthülle Deinen Weg",
@@ -163,6 +168,10 @@ const translations = {
     homeResultText:
       "Tvoje tumačenje će se pojaviti kada karte budu izvučene.",
 
+
+    dailyHeroTitle: "Izaberi svoju kartu dana",
+    dailyHeroText:  "Usmeri svoju nameru i intuitivno izaberi jednu kartu kako bi otkrio/la današnju energiju.",
+
     /* READING (reading.html) */
     readingHeroTitle: "Otkrij Svoj Put",
     readingHeroText:
@@ -232,6 +241,9 @@ const translations = {
     homeResultText:
       "Tvoj výklad sa zobrazí po výbere kariet.",
 
+    dailyHeroTitle: "Izaberi svoju kartu dana",
+    dailyHeroText: "Zameraj svoju pozornosť na zámer a intuitívne si vyber jednu kartu, aby si odhalil/a dnešnú energiu.",
+
     /* READING (reading.html) */
     readingHeroTitle: "Odhaľ Svoju Cestu",
     readingHeroText:
@@ -294,6 +306,9 @@ const translations = {
     homeResultTitle: "Göksel Hikayen",
     homeResultText:
       "Kartlar çekildiğinde falın burada görünecek.",
+
+    dailyHeroTitle: "Günün Kartını Seç",
+    dailyHeroText: "Zameraj svoju pozornosť na zámer a intuitívne si vyber jednu kartu, aby si odhalil/a dnešnú energiu.",
 
     readingHeroTitle: "Yolunu Keşfet",
     readingHeroText:
@@ -384,6 +399,45 @@ function initLanguage() {
   }
 }
 
+/* ==================================================
+   DAILY CARD ENGINE
+================================================== */
+
+let dailyCardSelected = false;
+
+function initDailyCard() {
+  loadTarotCards().then(() => {
+    drawCards(3);
+    renderDailyCards();
+  });
+}
+
+function renderDailyCards() {
+  const cards = document.querySelectorAll(".tarot-card");
+  const lang = localStorage.getItem("lang") || "en";
+
+  cards.forEach((cardEl, index) => {
+    const card = selectedCards[index];
+    if (!card) return;
+
+    cardEl.addEventListener("click", () => {
+      if (dailyCardSelected) return;
+
+      dailyCardSelected = true;
+      cardEl.classList.add("open");
+
+      const front = cardEl.querySelector(".card-front");
+      if (front) front.style.backgroundImage = `url(${card.image})`;
+
+      generateDailyCardReading(card);
+      
+      // diğer kartları kapat
+      cards.forEach(c => {
+        if (c !== cardEl) c.classList.add("disabled");
+      });
+    });
+  });
+}
 
 /* ==================================================
    TAROT ENGINE
@@ -507,44 +561,39 @@ function openModal(card) {
   document.getElementById("cardModal").classList.remove("hidden");
 }
 
-// document.getElementById("closeModal")?.addEventListener("click", () => {
-//   document.getElementById("cardModal").classList.add("hidden");
-// });
 
-// document.getElementById("cardModal")?.addEventListener("click", e => {
-//   if (e.target.id === "cardModal") {
-//     e.currentTarget.classList.add("hidden");
-//   }
-// });
 
 function pad2(n) {
   return String(n).padStart(2, "0");
 }
 
-// let combinationData = null;
-// let comboFileId = null;
+async function generateDailyCardReading(card) {
+  const lang = localStorage.getItem("lang") || "en";
 
-// async function loadCombinationFile(firstCardId) {
-//   // Aynı dosyayı tekrar tekrar indirmeyelim
-//   if (combinationData && comboFileId === firstCardId) return;
+  writeNarrative(translations[lang]?.tarotLoading || "");
 
-//   const fileName = `combinations-${pad2(firstCardId)}.json`;
+  try {
+    const res = await fetch(
+      "https://falloshka-astro-backend.vercel.app/api/daily-tarot",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          card: card.name[lang] || card.name.en,
+          lang
+        }),
+      }
+    );
 
-//   // ✅ SENİN SORDUĞUN SATIR TAM OLARAK BURADA:
-//   const res = await fetch(`./combinations/${fileName}`);
-//   combinationData = await res.json();
-//   comboFileId = firstCardId;
-// }
+    const data = await res.json();
+    writeNarrative(data.result);
 
-// function getComboText(entry, lang) {
-//   // reading çok dilli obje ise
-//   if (entry?.reading && typeof entry.reading === "object") {
-//     return entry.reading[lang] || entry.reading.en || "";
-//   }
-//   // eski format (string) destek
-//   if (typeof entry?.reading === "string") return entry.reading;
-//   return "";
-// }
+  } catch (err) {
+    console.error(err);
+    writeNarrative(translations[lang]?.tarotError || "");
+  }
+}
+
 async function generateTarotReading() {
   const lang = localStorage.getItem("lang") || "en";
 
@@ -773,5 +822,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   }
+  /* ===============================
+    DAILY CARD (GÜNÜN KARTI)
+  =============================== */
+
+  if (document.body.classList.contains("page-daily")) {
+    initDailyCard();
+  }
+
+
 }
+
 });
