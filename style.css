@@ -92,7 +92,7 @@ select {
   display: flex;
   align-items: center;
   padding: 80px 10%;
-  background: url("hero-space.png") no-repeat center/cover;
+  background: url("images/kure.jpg") no-repeat center/cover;
 }
 
 .page-home .hero-content {
@@ -171,6 +171,7 @@ select {
   height: auto;
   border-radius: 18px;
   box-shadow: 0 0 40px rgba(150, 90, 255, 0.4);
+   max-width: 520px;
 }
 
 .page-home .experience-text h2 {
