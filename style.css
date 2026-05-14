@@ -4,6 +4,7 @@
 }
 
 body {
+  padding-top: 90px;
   margin: 0;
   background: radial-gradient(circle at top, #1b1033, #0c0816);
   color: #f1f1f3;
@@ -12,6 +13,7 @@ body {
 /* NAVBAR */
 .navbar {
   position: fixed;        /* 🔴 SABİTLER */
+  
   top: 0;
   left: 0;
   width: 100%;
@@ -686,29 +688,69 @@ footer {
 HAMBURGER MENU
 ========================= */
 
+/* =========================
+HAMBURGER ICON (ANIMATED)
+========================= */
+
 .hamburger {
   display: none;
-  font-size: 26px;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 6px;
+
+  width: 32px;
+  height: 28px;
+
   background: none;
   border: none;
-  color: #ffd700;
   cursor: pointer;
 }
+
+
+/* çizgiler */
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #ffd700;
+  border-radius: 2px;
+
+  transition: all 0.3s ease;
+}
+
+
+/* ✅ X animasyonu */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 
 @media (max-width: 768px) {
 
   .hamburger {
-    display: block;
-    z-index: 1001;
+    display: flex;
+    z-index: 999;
   }
 
   .navbar {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    height: 90px;
   }
 
   nav {
-    position: fixed;   /* ✅ önemli */
-    top: 90px;         /* body padding ile aynı */
+    position: fixed;
+    top: 90px;
     left: 0;
     width: 100%;
 
@@ -725,10 +767,25 @@ HAMBURGER MENU
     max-height: 0;
     overflow: hidden;
 
-    transition: max-height 0.3s ease;
+  
+    opacity: 0;                /* ✅ EKLENDI */
+    pointer-events: none;      /* ✅ EKLENDI */
+
+    transition: all 0.3s ease;
+  }
+
+
+  nav a {
+    margin: 0;
+    padding: 10px 0; /* ✅ daha iyi spacing */
   }
 
   nav.open {
     max-height: 400px;
+  
+    opacity: 1;                /* ✅ EKLENDI */
+    pointer-events: auto;      /* ✅ EKLENDI */
   }
-}
+
+
+} /* ✅ TEK KAPAMA */
