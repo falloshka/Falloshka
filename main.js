@@ -988,11 +988,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           resultEl.textContent = "Please enter your birth date.";
           return;
         }
-        if (!name || !topic) {
-          resultEl.textContent =
-            "Please enter your name and select a life topic.";
-          return;
-        }
+
 
         if (!day || !month || isNaN(day) || isNaN(month)) {
           resultEl.textContent = "Please enter a valid birth date.";
@@ -1007,6 +1003,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         const topic = document.querySelector(
           'input[name="topic"]:checked'
         )?.value;
+        if (!name || !topic) {
+          resultEl.textContent =
+            "Please enter your name and select a life topic.";
+          return;
+        }
 
         const message =
           document.getElementById("userMessage")?.value.trim() || "";
@@ -1020,6 +1021,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         try {
+          astroBtn.disabled = true; 
           const res = await fetch(
             "https://falloshka-astro-backend.vercel.app/api/astro",
             {
@@ -1050,10 +1052,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           resultEl.textContent = translations[lang]?.astroError || "";
           console.error(err);
         }
-          finally {
-            astroBtn.disabled = false; ✅ BURAYA
-            astroBtn.textContent = translations[lang].readingBtnDraw;
-          }
+        finally {
+          astroBtn.disabled = false; 
+          astroBtn.textContent = translations[lang].readingBtnDraw;
+        }
 
       });
     }
