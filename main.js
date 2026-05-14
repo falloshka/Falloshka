@@ -923,7 +923,25 @@ function getZodiacPlanet(sign, lang = "en") {
 
 document.addEventListener("DOMContentLoaded", async () => {
   initLanguage();
+/* ===============================
+HAMBURGER MENU
+=============================== */
 
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+if (hamburger && navMenu) {
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
+  });
+
+  // ✅ linke basınca kapanır
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("open");
+    });
+  });
+}
   /* ===============================
      MODAL KAPATMA
   =============================== */
