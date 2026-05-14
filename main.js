@@ -930,17 +930,22 @@ HAMBURGER MENU
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
 
-if (hamburger && navMenu) {
+if (hamburger && navMenu) { 
   hamburger.addEventListener("click", () => {
     navMenu.classList.toggle("open");
+    hamburger.classList.toggle("active"); // ✅ ICON DÖNÜŞÜR
   });
 
+
   // ✅ linke basınca kapanır
+  
   navMenu.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
       navMenu.classList.remove("open");
+      hamburger.classList.remove("active"); // ✅ geri ☰ olur
     });
   });
+
 }
   /* ===============================
      MODAL KAPATMA
