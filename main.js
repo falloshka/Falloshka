@@ -65,9 +65,9 @@ const translations = {
     astroLoading: "Reading the cosmic currents...",
     astroError: "The astral connection is momentarily unclear. Please try again.",
     tarotShuffleBtn: "Shuffle Cards",
-    
+
     tarotLoading: "Interpreting the energies of the cards...",
-    tarotError:"The card energies are unclear right now. Please try again.",
+    tarotError: "The card energies are unclear right now. Please try again.",
 
     /* FOOTER */
     footerText:
@@ -99,7 +99,7 @@ const translations = {
       "Deine Legung erscheint hier, sobald die Karten gezogen wurden.",
 
     dailyHeroTitle: "Wähle deine Karte des Tages",
-    dailyHeroText:"Richte deine Absicht aus und wähle intuitiv eine Karte, um die heutige Energie zu enthüllen.",
+    dailyHeroText: "Richte deine Absicht aus und wähle intuitiv eine Karte, um die heutige Energie zu enthüllen.",
 
     /* READING (reading.html) */
     readingHeroTitle: "Enthülle Deinen Weg",
@@ -173,7 +173,7 @@ const translations = {
 
 
     dailyHeroTitle: "Izaberi svoju kartu dana",
-    dailyHeroText:  "Usmeri svoju nameru i intuitivno izaberi jednu kartu kako bi otkrio/la današnju energiju.",
+    dailyHeroText: "Usmeri svoju nameru i intuitivno izaberi jednu kartu kako bi otkrio/la današnju energiju.",
 
     /* READING (reading.html) */
     readingHeroTitle: "Otkrij Svoj Put",
@@ -212,7 +212,7 @@ const translations = {
     astroError: "Astralna veza trenutno nije jasna. Molimo pokušaj ponovo.",
 
     tarotShuffleBtn: "Promešaj karte",
-    
+
     tarotLoading: "Energije karata se tumače...",
     tarotError:
       "Energije karata trenutno nisu jasne. Molimo pokušaj ponovo.",
@@ -285,7 +285,7 @@ const translations = {
     astroError: "Astrálne spojenie je momentálne nejasné. Skús to prosím znova.",
     tarotShuffleBtn: "Zamiešať karty",
     tarotLoading: "Interpretujem energie kariet...",
-    tarotError:"Energie kariet sú momentálne nejasné. Skús to prosím znova.",
+    tarotError: "Energie kariet sú momentálne nejasné. Skús to prosím znova.",
     /* FOOTER */
     footerText:
       "Tento obsah slúži len na zábavné účely."
@@ -351,10 +351,10 @@ const translations = {
     astroLoading: "Kozmik akışlar okunuyor...",
     astroError: "Astral bağlantı şu anda net değil. Lütfen tekrar dene.",
     tarotShuffleBtn: "Kartları Karıştır",
-    
+
     tarotLoading: "Kartların enerjileri yorumlanıyor...",
     tarotError:
-    "Kartların enerjileri şu anda net değil. Lütfen tekrar dene.",
+      "Kartların enerjileri şu anda net değil. Lütfen tekrar dene.",
 
 
     footerText: "Bu içerik eğlence amaçlıdır."
@@ -466,7 +466,7 @@ function renderCards() {
 
         // ✅ GÜNLÜK YORUM (daily.js)
         generateDailyCardReading(card);
-        
+
         // ✅ DİĞER KARTLARI PASİF YAP (KRİTİK)
         document.querySelectorAll(".tarot-card").forEach(c => {
           if (c !== cleanCard) {
@@ -486,7 +486,7 @@ function renderCards() {
 
 
       if (cleanCard.classList.contains("open")) return;
-      
+
       // 🔮 Duman efekti
       cleanCard.classList.add("smoke");
       setTimeout(() => {
@@ -719,12 +719,203 @@ function resetTarot() {
   // 6️⃣ ✅ YENİ kartları GERÇEKTEN karıştır
   drawCards(3);
 
-  
+
 
   // 8️⃣ ✅ SADECE TEK KEZ event bağlanır
   renderCards();
 }
+function getZodiacSign(day, month) {
+  day = parseInt(day);
+  month = parseInt(month);
 
+  if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return "aquarius";
+  if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) return "pisces";
+  if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return "aries";
+  if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return "taurus";
+  if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) return "gemini";
+  if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) return "cancer";
+  if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return "leo";
+  if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return "virgo";
+  if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) return "libra";
+  if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) return "scorpio";
+  if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) return "sagittarius";
+  if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) return "capricorn";
+
+  return "";
+}
+function getZodiacLocalized(day, month, lang = "en") {
+  day = parseInt(day);
+  month = parseInt(month);
+
+  let sign = "";
+
+  // ✅ BURÇ HESAPLAMA
+  if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) sign = "aquarius";
+  else if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) sign = "pisces";
+  else if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) sign = "aries";
+  else if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) sign = "taurus";
+  else if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) sign = "gemini";
+  else if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) sign = "cancer";
+  else if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) sign = "leo";
+  else if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) sign = "virgo";
+  else if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) sign = "libra";
+  else if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) sign = "scorpio";
+  else if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) sign = "sagittarius";
+  else if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) sign = "capricorn";
+
+  // ✅ 5 DİL ÇEVİRİ
+  const zodiacMap = {
+    en: {
+      aries: "Aries",
+      taurus: "Taurus",
+      gemini: "Gemini",
+      cancer: "Cancer",
+      leo: "Leo",
+      virgo: "Virgo",
+      libra: "Libra",
+      scorpio: "Scorpio",
+      sagittarius: "Sagittarius",
+      capricorn: "Capricorn",
+      aquarius: "Aquarius",
+      pisces: "Pisces",
+    },
+
+    tr: {
+      aries: "Koç",
+      taurus: "Boğa",
+      gemini: "İkizler",
+      cancer: "Yengeç",
+      leo: "Aslan",
+      virgo: "Başak",
+      libra: "Terazi",
+      scorpio: "Akrep",
+      sagittarius: "Yay",
+      capricorn: "Oğlak",
+      aquarius: "Kova",
+      pisces: "Balık",
+    },
+
+    de: {
+      aries: "Widder",
+      taurus: "Stier",
+      gemini: "Zwillinge",
+      cancer: "Krebs",
+      leo: "Löwe",
+      virgo: "Jungfrau",
+      libra: "Waage",
+      scorpio: "Skorpion",
+      sagittarius: "Schütze",
+      capricorn: "Steinbock",
+      aquarius: "Wassermann",
+      pisces: "Fische",
+    },
+
+    sk: {
+      aries: "Baran",
+      taurus: "Býk",
+      gemini: "Blíženci",
+      cancer: "Rak",
+      leo: "Lev",
+      virgo: "Panna",
+      libra: "Váhy",
+      scorpio: "Škorpión",
+      sagittarius: "Strelec",
+      capricorn: "Kozorožec",
+      aquarius: "Vodnár",
+      pisces: "Ryby",
+    },
+
+    sr: {
+      aries: "Ovan",
+      taurus: "Bik",
+      gemini: "Blizanci",
+      cancer: "Rak",
+      leo: "Lav",
+      virgo: "Devica",
+      libra: "Vaga",
+      scorpio: "Škorpija",
+      sagittarius: "Strelac",
+      capricorn: "Jarac",
+      aquarius: "Vodolija",
+      pisces: "Ribe",
+    },
+  };
+
+  return zodiacMap[lang]?.[sign] || zodiacMap["en"][sign];
+}
+
+function getZodiacElement(sign, lang = "en") {
+  const elementMap = {
+    fire: {
+      en: "Fire 🔥",
+      tr: "Ateş 🔥",
+      de: "Feuer 🔥",
+      sk: "Oheň 🔥",
+      sr: "Vatra 🔥",
+    },
+    earth: {
+      en: "Earth 🌱",
+      tr: "Toprak 🌱",
+      de: "Erde 🌱",
+      sk: "Zem 🌱",
+      sr: "Zemlja 🌱",
+    },
+    air: {
+      en: "Air 🌬️",
+      tr: "Hava 🌬️",
+      de: "Luft 🌬️",
+      sk: "Vzduch 🌬️",
+      sr: "Vazduh 🌬️",
+    },
+    water: {
+      en: "Water 💧",
+      tr: "Su 💧",
+      de: "Wasser 💧",
+      sk: "Voda 💧",
+      sr: "Voda 💧",
+    },
+  };
+
+  const signToElement = {
+    aries: "fire",
+    leo: "fire",
+    sagittarius: "fire",
+
+    taurus: "earth",
+    virgo: "earth",
+    capricorn: "earth",
+
+    gemini: "air",
+    libra: "air",
+    aquarius: "air",
+
+    cancer: "water",
+    scorpio: "water",
+    pisces: "water",
+  };
+
+  const elementKey = signToElement[sign];
+
+  return elementMap[elementKey]?.[lang] || elementMap[elementKey]?.["en"] || "";
+}
+function getZodiacPlanet(sign, lang = "en") {
+  const planetMap = {
+    aries: { en: "Mars ♂️", tr: "Mars ♂️", de: "Mars ♂️", sk: "Mars ♂️", sr: "Mars ♂️" },
+    taurus: { en: "Venus ♀️", tr: "Venüs ♀️", de: "Venus ♀️", sk: "Venuša ♀️", sr: "Venera ♀️" },
+    gemini: { en: "Mercury ☿", tr: "Merkür ☿", de: "Merkur ☿", sk: "Merkúr ☿", sr: "Merkur ☿" },
+    cancer: { en: "Moon 🌙", tr: "Ay 🌙", de: "Mond 🌙", sk: "Mesiac 🌙", sr: "Mesec 🌙" },
+    leo: { en: "Sun ☀️", tr: "Güneş ☀️", de: "Sonne ☀️", sk: "Slnko ☀️", sr: "Sunce ☀️" },
+    virgo: { en: "Mercury ☿", tr: "Merkür ☿", de: "Merkur ☿", sk: "Merkúr ☿", sr: "Merkur ☿" },
+    libra: { en: "Venus ♀️", tr: "Venüs ♀️", de: "Venus ♀️", sk: "Venuša ♀️", sr: "Venera ♀️" },
+    scorpio: { en: "Pluto ♇ / Mars ♂️", tr: "Plüton ♇ / Mars ♂️", de: "Pluto ♇ / Mars ♂️", sk: "Pluto ♇ / Mars ♂️", sr: "Pluton ♇ / Mars ♂️" },
+    sagittarius: { en: "Jupiter ♃", tr: "Jüpiter ♃", de: "Jupiter ♃", sk: "Jupiter ♃", sr: "Jupiter ♃" },
+    capricorn: { en: "Saturn ♄", tr: "Satürn ♄", de: "Saturn ♄", sk: "Saturn ♄", sr: "Saturn ♄" },
+    aquarius: { en: "Uranus ♅ / Saturn ♄", tr: "Uranüs ♅ / Satürn ♄", de: "Uranus ♅ / Saturn ♄", sk: "Urán ♅ / Saturn ♄", sr: "Uran ♅ / Saturn ♄" },
+    pisces: { en: "Neptune ♆ / Jupiter ♃", tr: "Neptün ♆ / Jüpiter ♃", de: "Neptun ♆ / Jupiter ♃", sk: "Neptún ♆ / Jupiter ♃", sr: "Neptun ♆ / Jupiter ♃" },
+  };
+
+  return planetMap[sign]?.[lang] || planetMap[sign]?.["en"] || "";
+}
 
 /* ==================================================
    INIT
@@ -763,7 +954,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadTarotMeanings();
     drawCards(3);
     opened = [false, false, false]
-    
+
     renderCards();
   }
 
@@ -777,68 +968,96 @@ document.addEventListener("DOMContentLoaded", async () => {
    =============================== */
 
   if (document.body.classList.contains("page-astro")) {
-  const astroBtn = document.getElementById("astroSubmit");
-  const resultEl = document.getElementById("astroResult");
+    const astroBtn = document.getElementById("astroSubmit");
+    const resultEl = document.getElementById("astroResult");
 
-  if (astroBtn && resultEl) {
-    astroBtn.addEventListener("click", async (e) => {
-      e.preventDefault();
-      const lang = localStorage.getItem("lang") || "en";
-      resultEl.dataset.dynamic = "true";
-      resultEl.textContent = translations[lang]?.astroLoading || "";
+    if (astroBtn && resultEl) {
+      astroBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const lang = localStorage.getItem("lang") || "en";
+        resultEl.dataset.dynamic = "true";
+        resultEl.textContent = translations[lang]?.astroLoading || "";
 
-      const name = document.getElementById("userName")?.value.trim() || "";
-      const day = document.getElementById("birthDay")?.value.trim() || "";
-      const month = document.getElementById("birthMonth")?.value.trim() || "";
-      const year = document.getElementById("birthYear")?.value.trim() || "";
-      const birth = `${day}.${month}.${year}`;
+        const name = document.getElementById("userName")?.value.trim() || "";
+        const day = document.getElementById("birthDay")?.value.trim() || "";
+        const month = document.getElementById("birthMonth")?.value.trim() || "";
+        const year = document.getElementById("birthYear")?.value.trim() || "";
+        const birth = `${day}.${month}.${year}`;
 
-      const topic = document.querySelector(
-        'input[name="topic"]:checked'
-      )?.value;
-
-      const message =
-        document.getElementById("userMessage")?.value.trim() || "";
-
-      
-
-      if (!name || !topic) {
-        resultEl.textContent =
-          "Please enter your name and select a life topic.";
-        return;
-      }
-
-      try {
-        const res = await fetch(
-        "https://falloshka-astro-backend.vercel.app/api/astro",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            birth,
-            topic,
-            message,
-            lang,
-          }),
+        if (!day || !month) {
+          resultEl.textContent = "Please enter your birth date.";
+          return;
         }
-      );
-
-        if (!res.ok) {
-          throw new Error("Worker error");
+        if (!name || !topic) {
+          resultEl.textContent =
+            "Please enter your name and select a life topic.";
+          return;
         }
 
-        const data = await res.json();
-        resultEl.textContent = data.result;
-      } catch (err) {
-        resultEl.textContent = translations[lang]?.astroError || "";
-        console.error(err);
-      }
-    });
+        if (!day || !month || isNaN(day) || isNaN(month)) {
+          resultEl.textContent = "Please enter a valid birth date.";
+          return;
+        }
+
+        const zodiacKey = getZodiacSign(day, month); // ✅ EN key
+        const zodiac = getZodiacLocalized(day, month, lang);
+        const element = getZodiacElement(zodiacKey, lang);
+        const planet = getZodiacPlanet(zodiacKey, lang);
+
+        const topic = document.querySelector(
+          'input[name="topic"]:checked'
+        )?.value;
+
+        const message =
+          document.getElementById("userMessage")?.value.trim() || "";
+
+
+
+        if (!name || !topic) {
+          resultEl.textContent =
+            "Please enter your name and select a life topic.";
+          return;
+        }
+
+        try {
+          const res = await fetch(
+            "https://falloshka-astro-backend.vercel.app/api/astro",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                name,
+                birth,
+                zodiac, // ✅ yeni alan
+                element,
+                planet, // ✅ YENi
+                topic,
+                message,
+                lang,
+              }),
+            }
+          );
+
+          if (!res.ok) {
+            throw new Error("Worker error");
+          }
+
+          const data = await res.json();
+          resultEl.textContent = data.result;
+        } catch (err) {
+          resultEl.textContent = translations[lang]?.astroError || "";
+          console.error(err);
+        }
+          finally {
+            astroBtn.disabled = false; ✅ BURAYA
+            astroBtn.textContent = translations[lang].readingBtnDraw;
+          }
+
+      });
+    }
+
   }
-
-}
 
 });
