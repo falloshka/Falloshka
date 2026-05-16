@@ -934,6 +934,23 @@ function getZodiacPlanet(sign, lang = "en") {
   return planetMap[sign]?.[lang] || planetMap[sign]?.["en"] || "";
 }
 
+async function validateImage(file) {
+
+  const res = await fetch(
+    "https://falloshka-astro-backend.vercel.app/api/img-validate",
+    {
+      method: "POST",
+      body: file
+    }
+  );
+
+  const data = await res.json();
+
+  console.log("VALIDATE RESULT:", data);
+
+  return data.isCup && (data.raw?.[0]?.score || 0) > 0.6;
+}
+
 /* ==================================================
    INIT
 ================================================== */
@@ -1119,6 +1136,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         const lang = localStorage.getItem("lang") || "en";
         const message = document.getElementById("coffeeMessage")?.value.trim() || "";
         resultEl.dataset.dynamic = "true";
+        resultEl.textContent = "Checking images...";
+
         coffeeBtn.textContent = translations[lang]?.coffeeAnalyzing || "Analyzing the coffee cups...";
 
         // ✅ inputlar
@@ -1134,12 +1153,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         // ✅ basit validation
         const files = [file1, file2, file3];
 
+        // ✅ basic file validation (aynı kalsın)
         for (const f of files) {
           if (!f.type.startsWith("image/")) {
             resultEl.textContent = "Only images are allowed.";
             return;
           }
-
 
           if (f.size > 3 * 1024 * 1024) {
             resultEl.textContent = "Image too large (max 3MB).";
@@ -1147,6 +1166,16 @@ document.addEventListener("DOMContentLoaded", async () => {
           }
         }
 
+        // ✅ HuggingFace VALIDATION (PARALEL 🔥)
+        const validations = await Promise.all(
+          files.map(f => validateImage(f))
+        );
+
+        if (validations.includes(false)) {
+          resultEl.textContent =
+            "Please upload coffee cup images only.";
+          return;
+        }
 
         try {
           coffeeBtn.disabled = true;
