@@ -789,3 +789,119 @@ HAMBURGER ICON (ANIMATED)
 
 
 } /* ✅ TEK KAPAMA */
+
+
+/* ===============================
+   COFFEE PAGE
+================================ */
+
+.page-coffee {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-coffee .hero {
+  text-align: center;
+}
+
+.page-coffee .coffee-upload {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* 🎴 CUP GRID */
+.cups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.cup-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 15px;
+  transition: 0.3s;
+}
+
+.cup-box:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* 📷 FILE INPUT */
+.cup-box input {
+  margin-top: 10px;
+  width: 100%;
+  color: white;
+}
+
+/* 🖼️ PREVIEW */
+.preview {
+  display: none;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* 🏷 LABEL */
+.cup-box label {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ✍️ TEXTAREA */
+#coffeeMessage {
+  width: 100%;
+  max-width: 700px;
+  height: 100px;
+  margin: 20px auto;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  resize: none;
+  display: block;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+/* ☕ BUTTON */
+#coffeeSubmit {
+  margin-top: 10px;
+  padding: 12px 26px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #6a0dad, #4b0082);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#coffeeSubmit:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+}
+
+/* 🔮 RESULT BOX */
+#coffeeResult {
+  margin-top: 30px;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .cups {
+    grid-template-columns: 1fr;
+  }
+}

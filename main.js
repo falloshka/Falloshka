@@ -6,6 +6,7 @@ const translations = {
   en: {
     /* NAV */
     navHome: "Home",
+    navCoffee: "Coffee Reading",
     navDaily: "Daily Card",
     navTarot: "Tarot Reading",
     navAstro: "Astrological Reading",
@@ -27,8 +28,8 @@ const translations = {
     homeResultText:
       "Your reading will appear here once the cards are drawn.",
 
-    dailyHeroTitle: "Choose Your Card of the Day",
-    dailyHeroText: "Focus your intention and intuitively select one card to reveal today’s energy.",
+    coffeeHeroTitle: "☕ Kahve Falı",
+    coffeeHeroText: "Share your coffee reading and uncover hidden insights.",
     /* READING (reading.html) */
     readingHeroTitle: "Reveal Your Path",
     readingHeroText:
@@ -65,7 +66,8 @@ const translations = {
     astroLoading: "Reading the cosmic currents...",
     astroError: "The astral connection is momentarily unclear. Please try again.",
     tarotShuffleBtn: "Shuffle Cards",
-
+    coffeeLoading: "Reading the coffee grounds...",
+    coffeeAnalyzing: "Analyzing the coffee cups...",
     tarotLoading: "Interpreting the energies of the cards...",
     tarotError: "The card energies are unclear right now. Please try again.",
 
@@ -77,6 +79,8 @@ const translations = {
   de: {
     /* NAV */
     navHome: "Start",
+    navCoffee: "Kaffee-Lesen",
+
     navDaily: "Tageskarte",
     navTarot: "Tarot-Lesung",
     navAstro: "Astrologische Lesung",
@@ -100,7 +104,8 @@ const translations = {
 
     dailyHeroTitle: "Wähle deine Karte des Tages",
     dailyHeroText: "Richte deine Absicht aus und wähle intuitiv eine Karte, um die heutige Energie zu enthüllen.",
-
+    coffeeHeroTitle: "☕ Kaffee-Lesen",
+    coffeeHeroText: "Teile dein Kaffee-Lesen und entdecke verborgene Einsichten.",
     /* READING (reading.html) */
     readingHeroTitle: "Enthülle Deinen Weg",
     readingHeroText:
@@ -137,10 +142,10 @@ const translations = {
     astroLoading: "Die kosmischen Strömungen werden gelesen...",
     astroError: "Die astrale Verbindung ist derzeit unklar. Bitte versuche es erneut.",
     tarotShuffleBtn: "Karten mischen",
-
+    coffeeLoading: "Die Kaffee-Grundlagen werden gelesen...",
+    coffeeAnalyzing: "Die Kaffee-Grundlagen werden analysiert...",
     tarotLoading: "Die Energien der Karten werden gedeutet...",
-    tarotError:
-      "Die Energien der Karten sind derzeit nicht klar. Bitte versuche es erneut.",
+    tarotError: "Die Energien der Karten sind derzeit nicht klar. Bitte versuche es erneut.",
 
 
     /* FOOTER */
@@ -150,6 +155,7 @@ const translations = {
   sr: {
     /* NAV */
     navHome: "Početna",
+    navCoffee: "Tumačenje kafe",
     navDaily: "Karta dana",
     navTarot: "Tarot tumačenje",
     navAstro: "Astrološko tumačenje",
@@ -179,7 +185,8 @@ const translations = {
     readingHeroTitle: "Otkrij Svoj Put",
     readingHeroText:
       "Započni svoje mistično putovanje deleći svoje informacije. Karte ukazuju na moguće pravce.",
-
+    coffeeHeroTitle: "☕ Tumačenje kafe",
+    coffeeHeroText: "Podeli svoje tumačenje kafe i otkrij skrivene uvide.",
     readingFormTitle: "Mistično Tarot Tumačenje",
     readingFormSubtitle:
       "Poveži se sa univerzumom i potraži smernice kroz karte.",
@@ -212,6 +219,8 @@ const translations = {
     astroError: "Astralna veza trenutno nije jasna. Molimo pokušaj ponovo.",
 
     tarotShuffleBtn: "Promešaj karte",
+    coffeeLoading: "Tumačim talog kafe...",
+    coffeeAnalyzing: "Šoljice se analiziraju...",
 
     tarotLoading: "Energije karata se tumače...",
     tarotError:
@@ -224,6 +233,7 @@ const translations = {
   sk: {
     /* NAV */
     navHome: "Domov",
+    navCoffee: "Výklad z kávy",
     navDaily: "Denná karta",
     navTarot: "Tarotový výklad",
     navAstro: "Astrologický výklad",
@@ -252,7 +262,8 @@ const translations = {
     readingHeroTitle: "Odhaľ Svoju Cestu",
     readingHeroText:
       "Začni svoju mystickú cestu zdieľaním svojich údajov. Karty naznačia možné smery.",
-
+    coffeeHeroTitle: "☕ Výklad z kávy",
+    coffeeHeroText: "Zdieľaj svoj výklad z kávy a objav skryté poznatky.",
     readingFormTitle: "Mystický Tarotový Výklad",
     readingFormSubtitle:
       "Spoj sa s vesmírom a nájdi vedenie prostredníctvom kariet.",
@@ -286,6 +297,8 @@ const translations = {
     tarotShuffleBtn: "Zamiešať karty",
     tarotLoading: "Interpretujem energie kariet...",
     tarotError: "Energie kariet sú momentálne nejasné. Skús to prosím znova.",
+    coffeeLoading: "Čítam kávovú usadeninu...",
+    coffeeAnalyzing: "Šálky sa analyzujú...",
     /* FOOTER */
     footerText:
       "Tento obsah slúži len na zábavné účely."
@@ -293,6 +306,7 @@ const translations = {
 
   tr: {
     navHome: "Ana Sayfa",
+    navCoffee: "Kahve Falın",
     navDaily: "Günün Kartı",
     navTarot: "Tarot Falın",
     navAstro: "Astroloji Falın",
@@ -315,7 +329,8 @@ const translations = {
 
     dailyHeroTitle: "Günün Kartını Seç",
     dailyHeroText: "Zameraj svoju pozornosť na zámer a intuitívne si vyber jednu kartu, aby si odhalil/a dnešnú energiu.",
-
+    coffeeHeroTitle: "☕ Kahve Falın",
+    coffeeHeroText: "Kahve falını paylaş ve gizli anlamları keşfet.",
     readingHeroTitle: "Yolunu Keşfet",
     readingHeroText:
       "Bilgilerini paylaşarak sezgisel yolculuğuna başla.",
@@ -351,6 +366,8 @@ const translations = {
     astroLoading: "Kozmik akışlar okunuyor...",
     astroError: "Astral bağlantı şu anda net değil. Lütfen tekrar dene.",
     tarotShuffleBtn: "Kartları Karıştır",
+    coffeeLoading: "Kahve faliniz okunuyor...",
+    coffeeAnalyzing: "Kahve Fincanlarınız inceleniyor...",
 
     tarotLoading: "Kartların enerjileri yorumlanıyor...",
     tarotError:
@@ -923,30 +940,30 @@ function getZodiacPlanet(sign, lang = "en") {
 
 document.addEventListener("DOMContentLoaded", async () => {
   initLanguage();
-/* ===============================
-HAMBURGER MENU
-=============================== */
+  /* ===============================
+  HAMBURGER MENU
+  =============================== */
 
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("navMenu");
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("navMenu");
 
-if (hamburger && navMenu) { 
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("open");
-    hamburger.classList.toggle("active"); // ✅ ICON DÖNÜŞÜR
-  });
-
-
-  // ✅ linke basınca kapanır
-  
-  navMenu.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      navMenu.classList.remove("open");
-      hamburger.classList.remove("active"); // ✅ geri ☰ olur
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("open");
+      hamburger.classList.toggle("active"); // ✅ ICON DÖNÜŞÜR
     });
-  });
 
-}
+
+    // ✅ linke basınca kapanır
+
+    navMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+        hamburger.classList.remove("active"); // ✅ geri ☰ olur
+      });
+    });
+
+  }
   /* ===============================
      MODAL KAPATMA
   =============================== */
@@ -1033,7 +1050,7 @@ if (hamburger && navMenu) {
         }
 
         const message =
-          document.getElementById("userMessage")?.value.trim() || "";
+          document.getElementById("coffeeMessage")?.value.trim() || "";
 
 
 
@@ -1044,7 +1061,7 @@ if (hamburger && navMenu) {
         }
 
         try {
-          astroBtn.disabled = true; 
+          astroBtn.disabled = true;
           const res = await fetch(
             "https://falloshka-astro-backend.vercel.app/api/astro",
             {
@@ -1076,13 +1093,104 @@ if (hamburger && navMenu) {
           console.error(err);
         }
         finally {
-          astroBtn.disabled = false; 
+          astroBtn.disabled = false;
           astroBtn.textContent = translations[lang].readingBtnDraw;
         }
 
       });
     }
 
+  }
+  /* ===============================
+   COFFEE READING – GROQ CONNECT
+   =============================== */
+
+  if (document.body.classList.contains("page-coffee")) {
+
+    const coffeeBtn = document.getElementById("coffeeSubmit");
+    const resultEl = document.getElementById("coffeeResult");
+
+
+    if (coffeeBtn && resultEl) {
+
+      coffeeBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        const lang = localStorage.getItem("lang") || "en";
+        const message = document.getElementById("coffeeMessage")?.value.trim() || "";
+        resultEl.dataset.dynamic = "true";
+        coffeeBtn.textContent = translations[lang]?.coffeeAnalyzing || "Analyzing the coffee cups...";
+
+        // ✅ inputlar
+        const file1 = document.getElementById("cup1")?.files[0];
+        const file2 = document.getElementById("cup2")?.files[0];
+        const file3 = document.getElementById("cup3")?.files[0];
+
+        if (!file1 || !file2 || !file3) {
+          resultEl.textContent = "Please upload 3 coffee cup images.";
+          return;
+        }
+
+        // ✅ basit validation
+        const files = [file1, file2, file3];
+
+        for (const f of files) {
+          if (!f.type.startsWith("image/")) {
+            resultEl.textContent = "Only images are allowed.";
+            return;
+          }
+
+
+          if (f.size > 3 * 1024 * 1024) {
+            resultEl.textContent = "Image too large (max 3MB).";
+            return;
+          }
+        }
+
+
+        try {
+          coffeeBtn.disabled = true;
+          coffeeBtn.textContent = translations[lang]?.coffeeLoading || "Reading...";
+
+
+          // ❗ Burada image’leri base64 yapabilirsin (opsiyonel)
+
+          const payload = {
+            hasImages: true,
+            message,
+            lang
+          };
+
+
+          const res = await fetch(
+            "https://falloshka-astro-backend.vercel.app/api/coffee",
+
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            }
+          );
+
+          // ✅ BURAYA EKLE
+          console.log("STATUS:", res.status);
+
+          const data = await res.json();
+
+          console.log("DATA:", data);
+
+          resultEl.textContent = data.result;
+
+        } catch (err) {
+          resultEl.textContent = "Coffee reading failed. Try again.";
+          console.error(err);
+
+        } finally {
+          coffeeBtn.disabled = false;
+          coffeeBtn.textContent = "Read Coffee";
+        }
+      });
+    }
   }
 
 });
