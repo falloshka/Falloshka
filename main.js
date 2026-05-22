@@ -1140,18 +1140,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         coffeeBtn.textContent = translations[lang]?.coffeeAnalyzing || "Analyzing the coffee cups...";
 
-        // ✅ inputlar
-        const file1 = document.getElementById("cup1")?.files[0];
-        const file2 = document.getElementById("cup2")?.files[0];
-        const file3 = document.getElementById("cup3")?.files[0];
+       
+        const files = Array.from(
+          document.getElementById("coffeeImages")?.files || []
+        );
 
-        if (!file1 || !file2 || !file3) {
-          resultEl.textContent = "Please upload 3 coffee cup images.";
+        if (files.length !== 3) {
+          resultEl.textContent = "Please upload exactly 3 images.";
           return;
         }
 
-        // ✅ basit validation
-        const files = [file1, file2, file3];
 
         // ✅ basic file validation (aynı kalsın)
         for (const f of files) {

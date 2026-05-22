@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-       <!-- Google tag (gtag.js) -->
+  <!-- Google tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD12TT6BWK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-GD12TT6BWK');
   </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coffee Reading</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="page-coffee">
 
-  <!-- ✅ HEADER -->
+<!-- ✅ HEADER -->
 <header class="navbar"> 
   <a href="index.html" class="brand">
-    <img src="images/logo.jpg" alt="Falloshka Logo" class="logo">
+    <img src="images/logo.jpg" class="logo">
     <span>Falloshka</span>
   </a>
 
-  <!-- ✅ HAMBURGER -->
- 
-<button class="hamburger" id="hamburger">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+  <button class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-
-  <!-- ✅ NAV -->
-  <nav id="navMenu">
+   <nav id="navMenu">
     <a href="index.html" data-i18n="navHome">Home</a>
     <a href="coffee.html" data-i18n="navCoffee">Coffee Reading</a>
     <a href="daily-card.html" data-i18n="navDaily">Daily Card</a>
     <a href="tarot-reading.html" data-i18n="navTarot">Tarot Reading</a>
     <a href="astro-reading.html" data-i18n="navAstro">Astrological Reading</a>
+    <a href="chat.html" data-i18n="navChat">Chat</a>
     <a href="#about" data-i18n="navAbout">About</a>
   </nav>
 
@@ -53,125 +52,103 @@
   </select>
 </header>
 
-  <!-- HERO -->
+<!-- ✅ HERO -->
 <section class="hero">
   <div class="hero-content">
-    <h1 data-i18n="coffeeHeroTitle">
-      ☕ Kahve Falı
-    </h1>
-
-    <p data-i18n="coffeeHeroText">
-      Falınızı özel bir durum üzerine kapattıysanız bizimle paylaşın.  
-      Daha kişisel bir yorum alabilirsiniz ✨  
-      Ya da hayatınızdaki herhangi bir konu hakkında yazabilirsiniz.
+    <h1>☕ Kahve Falı</h1>
+    <p>
+      Kahve falını paylaş ve gizli anlamları keşfet ✨
     </p>
-
   </div>
 </section>
 
-  <!-- ✅ UPLOAD -->
-  <section class="coffee-upload">
+<!-- ✅ UPLOAD -->
+<section class="coffee-upload">
 
-    <div class="cups">
+  <!-- ✅ TEK INPUT -->
+  <input type="file" id="coffeeImages" accept="image/*" multiple hidden>
 
-      <!-- CUP 1 -->
-      <div class="cup-box">
-        <label>Fincan 1</label>
-        <input type="file" id="cup1" accept="image/*">
-        <img id="preview1" class="preview" />
-      </div>
+  <!-- ✅ PREVIEW -->
+  <div id="previewContainer" class="preview-grid"></div>
 
-      <!-- CUP 2 -->
-      <div class="cup-box">
-        <label>Fincan 2</label>
-        <input type="file" id="cup2" accept="image/*">
-        <img id="preview2" class="preview" />
-      </div>
+  <!-- ✅ MESSAGE -->
+  <textarea 
+    id="coffeeMessage"
+    placeholder="(İsteğe bağlı) Falını bir konu üzerine kapattıysan yazabilirsin..."
+  ></textarea>
 
-      <!-- CUP 3 -->
-      <div class="cup-box">
-        <label>Fincan 3</label>
-        <input type="file" id="cup3" accept="image/*">
-        <img id="preview3" class="preview" />
-      </div>
+  <!-- ✅ BUTTON -->
+  <button id="coffeeSubmit">Falına Bak ☕</button>
 
-    </div>
+  <!-- ✅ RESULT -->
+  <div class="result-box">
+    <p id="coffeeResult"></p>
+  </div>
 
-    <!-- ✅ MESSAGE -->
-    <textarea 
-      id="coffeeMessage"
-      placeholder="(İsteğe bağlı) Falınızı bir konu üzerine kapattıysanız paylaşabilirsiniz..."
-    ></textarea>
-
-    <!-- ✅ BUTTON -->
-    <button id="coffeeSubmit">Falına Bak ☕</button>
-
-    <!-- ✅ RESULT -->
-    <div class="result-box">
-      <p id="coffeeResult"></p>
-    </div>
-
-  </section>
+</section>
 
 <footer>
-<p data-i18n="footerText">
-This content is for entertainment purposes only.
-</p>
+<p>This content is for entertainment purposes only.</p>
 </footer>
+
 <script src="main.js"></script>
 
-  <!-- ✅ IMAGE COMPRESS + PREVIEW -->
-  <script>
-    async function compressImage(file) {
-      const img = await createImageBitmap(file);
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
+<!-- ✅ IMAGE PREVIEW SCRIPT -->
+<script>
+async function compressImage(file) {
+  const img = await createImageBitmap(file);
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
 
-      const MAX = 512;
+  const MAX = 512;
 
-      let width = img.width;
-      let height = img.height;
+  let width = img.width;
+  let height = img.height;
 
-      if (width > height) {
-        if (width > MAX) {
-          height *= MAX / width;
-          width = MAX;
-        }
-      } else {
-        if (height > MAX) {
-          width *= MAX / height;
-          height = MAX;
-        }
-      }
-
-      canvas.width = width;
-      canvas.height = height;
-      ctx.drawImage(img, 0, 0, width, height);
-
-      return canvas.toDataURL("image/jpeg", 0.7);
+  if (width > height) {
+    if (width > MAX) {
+      height *= MAX / width;
+      width = MAX;
     }
-
-    function setupPreview(inputId, previewId) {
-      const input = document.getElementById(inputId);
-      const preview = document.getElementById(previewId);
-
-      input.addEventListener("change", async () => {
-        const file = input.files[0];
-        if (!file) return;
-
-        const compressed = await compressImage(file);
-
-        // ✅ göster
-        preview.src = compressed;
-        preview.style.display = "block";
-
-      });
+  } else {
+    if (height > MAX) {
+      width *= MAX / height;
+      height = MAX;
     }
+  }
 
-    setupPreview("cup1", "preview1");
-    setupPreview("cup2", "preview2");
-    setupPreview("cup3", "preview3");
-  </script>
+  canvas.width = width;
+  canvas.height = height;
+  ctx.drawImage(img, 0, 0, width, height);
+
+  return canvas.toDataURL("image/jpeg", 0.7);
+}
+
+const input = document.getElementById("coffeeImages");
+const previewContainer = document.getElementById("previewContainer");
+
+input.addEventListener("change", async () => {
+
+  const files = Array.from(input.files);
+  previewContainer.innerHTML = "";
+
+  if (files.length !== 3) {
+    alert("Lütfen tam olarak 3 fotoğraf seç.");
+    return;
+  }
+
+  for (const file of files) {
+    const img = document.createElement("img");
+
+    img.classList.add("preview");
+
+    const compressed = await compressImage(file);
+    img.src = compressed;
+
+    previewContainer.appendChild(img);
+  }
+});
+</script>
 
 </body>
 </html>
