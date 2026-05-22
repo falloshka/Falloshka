@@ -936,13 +936,18 @@ function getZodiacPlanet(sign, lang = "en") {
 
 async function validateImage(file) {
 
+
   const res = await fetch(
     "https://falloshka-astro-backend.vercel.app/api/img-validate",
     {
       method: "POST",
+      headers: {
+        "Content-Type": "application/octet-stream"
+      },
       body: file
     }
   );
+
 
   const data = await res.json();
 
