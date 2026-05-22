@@ -323,16 +323,16 @@ footer {
 }
 
 /* READING HERO */
-.reading-hero {
+.hero {
   text-align: center;
-  padding: 80px 10%;
+  padding: 10px 10%;
 }
 
-.reading-hero h1 {
+.hero h1 {
   font-size: 42px;
 }
 
-.reading-hero p {
+.hero p {
   max-width: 520px;
   margin: auto;
   opacity: 0.85;
@@ -751,7 +751,7 @@ HAMBURGER ICON (ANIMATED)
     top: 90px;
     left: 0;
     width: 100%;
-
+    display: none;
     background: rgba(20,10,40,0.95);
     backdrop-filter: blur(8px);
 
@@ -780,7 +780,7 @@ HAMBURGER ICON (ANIMATED)
 
   nav.open {
     max-height: 400px;
-  
+    display: flex;
     opacity: 1;                /* ✅ EKLENDI */
     pointer-events: auto;      /* ✅ EKLENDI */
   }
@@ -1002,7 +1002,7 @@ HAMBURGER ICON (ANIMATED)
 }
 
 /* BUTTON FIX */
-.page-chat button {
+.page-chat .input-area button {
   background: linear-gradient(135deg, #6a0dad, #4b0082);
   color: white;
 
@@ -1015,7 +1015,7 @@ HAMBURGER ICON (ANIMATED)
   transition: 0.2s;
 }
 
-.page-chat button:hover {
+.page-chat .input-area button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
   box-shadow: 0 0 10px rgba(140,80,255,0.5);
