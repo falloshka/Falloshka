@@ -966,7 +966,7 @@ async function validateImage(file) {
   }
 
 
-  return data.isCup && (data.raw?.[0]?.score || 0) > 0.6;
+  return data.isCup && (data.raw?.[0]?.score || 0) > 0.4;
 }
 
 /* ==================================================
