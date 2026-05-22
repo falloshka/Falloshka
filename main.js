@@ -956,7 +956,6 @@ async function validateImage(file) {
   console.log("RAW:", data.raw);
   console.log("IS CUP:", data.isCup);
   console.log("CONFIDENCE:", data.raw?.[0]?.score);
-
   if (Array.isArray(data.raw)) {
     data.raw.forEach(item => {
       console.log(item.label, item.score);
@@ -965,8 +964,7 @@ async function validateImage(file) {
     console.log("TOP LABEL:", data.raw[0]);
   }
 
-
-  return data.isCup && (data.raw?.[0]?.score || 0) > 0.4;
+  return data.isCup 
 }
 
 /* ==================================================
