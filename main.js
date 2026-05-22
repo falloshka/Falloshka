@@ -946,7 +946,20 @@ async function validateImage(file) {
 
   const data = await res.json();
 
+
   console.log("VALIDATE RESULT:", data);
+  console.log("RAW:", data.raw);
+  console.log("IS CUP:", data.isCup);
+  console.log("CONFIDENCE:", data.raw?.[0]?.score);
+
+  if (Array.isArray(data.raw)) {
+    data.raw.forEach(item => {
+      console.log(item.label, item.score);
+    });
+
+    console.log("TOP LABEL:", data.raw[0]);
+  }
+
 
   return data.isCup && (data.raw?.[0]?.score || 0) > 0.6;
 }
@@ -1140,7 +1153,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         coffeeBtn.textContent = translations[lang]?.coffeeAnalyzing || "Analyzing the coffee cups...";
 
-       
+
         const files = Array.from(
           document.getElementById("coffeeImages")?.files || []
         );
