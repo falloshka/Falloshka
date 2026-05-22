@@ -69,7 +69,11 @@
   <input type="file" id="coffeeImages" accept="image/*" multiple hidden>
 
   <!-- ✅ PREVIEW -->
-  <div id="previewContainer" class="preview-grid"></div>
+  <div class="cups" id="cupBoxes">
+  <div class="cup-box" data-index="0">📷</div>
+  <div class="cup-box" data-index="1">📷</div>
+  <div class="cup-box" data-index="2">📷</div>
+</div>
 
   <!-- ✅ MESSAGE -->
   <textarea 
@@ -125,27 +129,39 @@ async function compressImage(file) {
 }
 
 const input = document.getElementById("coffeeImages");
-const previewContainer = document.getElementById("previewContainer");
+const cups = document.querySelectorAll(".cup-box");
+
+cups.forEach(cup => {
+  cup.addEventListener("click", () => {
+    input.click();
+  });
+});
+
 
 input.addEventListener("change", async () => {
-
   const files = Array.from(input.files);
-  previewContainer.innerHTML = "";
 
   if (files.length !== 3) {
     alert("Lütfen tam olarak 3 fotoğraf seç.");
     return;
   }
 
-  for (const file of files) {
-    const img = document.createElement("img");
+  // ✅ reset (EKLE)
+  cups.forEach(cup => cup.innerHTML = "📷");
 
-    img.classList.add("preview");
+  for (let i = 0; i < cups.length; i++) {
+    const file = files[i];
 
     const compressed = await compressImage(file);
-    img.src = compressed;
 
-    previewContainer.appendChild(img);
+    cups[i].innerHTML = "";
+
+    const img = document.createElement("img");
+    img.src = compressed;
+    img.style.width = "100%";
+    img.style.borderRadius = "10px";
+
+    cups[i].appendChild(img);
   }
 });
 </script>

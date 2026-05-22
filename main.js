@@ -27,7 +27,7 @@ const translations = {
     homeResultTitle: "Your Celestial Narrative",
     homeResultText:
       "Your reading will appear here once the cards are drawn.",
-
+    dailyHeroText: "Focus your intention and intuitively select one card to reveal today’s energy. The card will guide you toward your next revelation.",
     coffeeHeroTitle: "☕ Kahve Falı",
     coffeeHeroText: "Share your coffee reading and uncover hidden insights.",
     /* READING (reading.html) */
@@ -328,7 +328,7 @@ const translations = {
       "Kartlar çekildiğinde falın burada görünecek.",
 
     dailyHeroTitle: "Günün Kartını Seç",
-    dailyHeroText: "Zameraj svoju pozornosť na zámer a intuitívne si vyber jednu kartu, aby si odhalil/a dnešnú energiu.",
+    dailyHeroText: "Niyetinize odaklanın ve bugünün enerjisini ortaya çıkarmak için sezgisel olarak bir kart seçin. Kart sizi bir sonraki aydınlanmanıza doğru yönlendirecektir.",
     coffeeHeroTitle: "☕ Kahve Falın",
     coffeeHeroText: "Kahve falını paylaş ve gizli anlamları keşfet.",
     readingHeroTitle: "Yolunu Keşfet",
