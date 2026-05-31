@@ -1060,3 +1060,83 @@ HAMBURGER ICON (ANIMATED)
   position: relative;
   z-index: 1;
 }
+
+/* CONTACT SECTION */
+.contact {
+  padding: 100px 10%;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* LEFT SIDE */
+.contact-info h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  opacity: 0.9;
+  margin: 8px 0;
+}
+
+/* RIGHT SIDE */
+.contact-form h3 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  background: #1c0f30;
+  border: 1px solid #ffd700;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.contact-form textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+/* BUTTON */
+.contact-form button {
+  background: #ffd700;
+  color: #0f0f17;
+  border-radius: 999px;
+  padding: 14px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.contact-form button:hover {
+  opacity: 0.9;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}

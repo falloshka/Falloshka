@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD12TT6BWK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-GD12TT6BWK');
@@ -18,108 +19,148 @@
 
 <body class="page-home">
 
-<header class="navbar"> 
-  <a href="index.html" class="brand">
-    <img src="images/logo.jpg" alt="Falloshka Logo" class="logo">
-    <span>Falloshka</span>
-  </a>
-
-  <!-- ✅ HAMBURGER -->
- 
-<button class="hamburger" id="hamburger">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-
-
-  <!-- ✅ NAV -->
-  <nav id="navMenu">
-    <a href="index.html" data-i18n="navHome">Home</a>
-    <a href="coffee.html" data-i18n="navCoffee">Coffee Reading</a>
-    <a href="daily-card.html" data-i18n="navDaily">Daily Card</a>
-    <a href="tarot-reading.html" data-i18n="navTarot">Tarot Reading</a>
-    <a href="astro-reading.html" data-i18n="navAstro">Astrological Reading</a>
-    <a href="chat.html" data-i18n="navChat">Chat</a>
-    <a href="#about" data-i18n="navAbout">About</a>
-  </nav>
-
-  <select id="languageSelector">
-    <option value="en">EN</option>
-    <option value="tr">TR</option>
-    <option value="de">DE</option>
-    <option value="sr">SR</option>
-    <option value="sk">SK</option>
-  </select>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <h1 data-i18n="homeHeroTitle">
-      Unveil Your Inner Mysteries
-    </h1>
-
-    <p data-i18n="homeHeroText">
-      Step into a sanctuary of intuitive reflection designed for curiosity and inspiration.
-    </p>
-
-    <a href="tarot-reading.html" class="primary-btn" data-i18n="homeHeroButton">
-      Draw Your Cards
+  <header class="navbar">
+    <a href="index.html" class="brand">
+      <img src="images/logo.jpg" alt="Falloshka Logo" class="logo">
+      <span>Falloshka</span>
     </a>
-  </div>
-</section>
 
-<!-- EXPERIENCE -->
-<section class="experience">
-  <div class="experience-grid">
+    <!-- ✅ HAMBURGER -->
 
-    <div class="card-image">
-      <img src="images/experience-card.png" alt="Moon and Sun Tarot Card">
-    </div>
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-    <div class="experience-text">
-      <h2 data-i18n="homeExpTitle">
-        The Experience
-      </h2>
 
-      <p data-i18n="homeExpText">
-        This journey is created for reflection, not prediction.
+    <!-- ✅ NAV -->
+    <nav id="navMenu">
+      <a href="index.html" data-i18n="navHome">Home</a>
+      <a href="coffee.html" data-i18n="navCoffee">Coffee Reading</a>
+      <a href="daily-card.html" data-i18n="navDaily">Daily Card</a>
+      <a href="tarot-reading.html" data-i18n="navTarot">Tarot Reading</a>
+      <a href="astro-reading.html" data-i18n="navAstro">Astrological Reading</a>
+      <a href="chat.html" data-i18n="navChat">Chat</a>
+      <a href="#about" data-i18n="navAbout">About</a>
+    </nav>
+
+    <select id="languageSelector">
+      <option value="en">EN</option>
+      <option value="tr">TR</option>
+      <option value="de">DE</option>
+      <option value="sr">SR</option>
+      <option value="sk">SK</option>
+    </select>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 data-i18n="homeHeroTitle">
+        Unveil Your Inner Mysteries
+      </h1>
+
+      <p data-i18n="homeHeroText">
+        Step into a sanctuary of intuitive reflection designed for curiosity and inspiration.
       </p>
 
-      <p class="note" data-i18n="homeExpNote">
-        Entertainment purposes only.
-      </p>
-
-      <a href="astro-reading.html" class="primary-btn small" data-i18n="homeExpButton">
-        Begin Reading
+      <a href="tarot-reading.html" class="primary-btn" data-i18n="homeHeroButton">
+        Draw Your Cards
       </a>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- EXPERIENCE -->
+  <section class="experience">
+    <div class="experience-grid">
 
-<!-- RESULT PREVIEW -->
-<section class="result">
-  <h2 data-i18n="homeResultTitle">
-    Your Celestial Narrative
-  </h2>
+      <div class="card-image">
+        <img src="images/experience-card.png" alt="Moon and Sun Tarot Card">
+      </div>
 
-  <div class="result-box">
-    <p data-i18n="homeResultText">
-      Your reading will appear here once the cards are drawn.
+      <div class="experience-text">
+        <h2 data-i18n="homeExpTitle">
+          The Experience
+        </h2>
+
+        <p data-i18n="homeExpText">
+          This journey is created for reflection, not prediction.
+        </p>
+
+        <p class="note" data-i18n="homeExpNote">
+          Entertainment purposes only.
+        </p>
+
+        <a href="astro-reading.html" class="primary-btn small" data-i18n="homeExpButton">
+          Begin Reading
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- REZERVATION / KONTAKT -->
+  <!-- ========================= -->
+  <section class="contact">
+    <div class="contact-container">
+
+      <h2 class="contact-title" data-i18n="contactTitle">
+        Contact
+      </h2>
+
+      <div class="contact-wrapper">
+
+        <!-- LEFT -->
+        <div class="contact-info">
+          <h3 data-i18n="contactInfoTitle">
+            ✨ The energy you send shall return…
+          </h3>
+          <p>Email: info@falloshka.com</p>
+          <!-- <p data-i18n="contactPhone">
+          Phone: +421 940 262 533
+        </p> -->
+        </div>
+
+        <!-- RIGHT -->
+        <div class="contact-form">
+
+          <h3 data-i18n="contactFormTitle">
+            🌙 Share your wishes and concerns with us… the universe listens through us.
+          </h3>
+
+          <form id="contact-form">
+
+            <input type="text" name="first_name" placeholder="Name *" data-i18n-placeholder="contactName" required>
+
+            <input type="text" name="last_name" placeholder="Surname *" data-i18n-placeholder="contactSurname" required>
+
+            <input type="email" name="email" placeholder="Email *" data-i18n-placeholder="contactEmail" required>
+
+            <textarea name="message" placeholder="Message" data-i18n-placeholder="contactMessage"></textarea>
+
+            <button type="submit" data-i18n="contactButton">
+              Send request
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footerText">
+      Fallosh provides symbolic readings for entertainment only.
     </p>
-  </div>
-</section>
+  </footer>
 
-<footer>
-  <p data-i18n="footerText">
-    Fallosh provides symbolic readings for entertainment only.
-  </p>
-</footer>
-
-<!-- ✅ SADECE TEK JS DOSYASI -->
-<script src="main.js"></script>
-
+  <!-- ✅ SADECE TEK JS DOSYASI -->
+  
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="main.js"></script>
 </body>
+
 </html>

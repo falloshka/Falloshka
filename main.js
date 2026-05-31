@@ -71,6 +71,16 @@ const translations = {
     tarotLoading: "Interpreting the energies of the cards...",
     tarotError: "The card energies are unclear right now. Please try again.",
 
+    contactTitle: "Contact",
+    contactInfoTitle: "✨ The energy you send shall return…",
+    contactFormTitle: "🌙 Share your wishes and concerns with us… the universe listens through us.",
+    contactName: "Name *",
+    contactSurname: "Surname *",
+    contactEmail: "Email *",
+    contactMessage: "Message",
+    contactButton: "Send request",
+    contactPhone: "Phone: +421 940 262 533",
+
     /* FOOTER */
     footerText:
       "This content is for entertainment purposes only."
@@ -147,6 +157,15 @@ const translations = {
     tarotLoading: "Die Energien der Karten werden gedeutet...",
     tarotError: "Die Energien der Karten sind derzeit nicht klar. Bitte versuche es erneut.",
 
+    contactTitle: "Kontakt",
+    contactInfoTitle: "✨ Die Energie, die du aussendest, kehrt zu dir zurück…",
+    contactFormTitle: "🌙 Teile deine Wünsche und Gedanken mit uns… das Universum hört durch uns zu.",
+    contactName: "Vorname *",
+    contactSurname: "Nachname *",
+    contactEmail: "E-Mail *",
+    contactMessage: "Nachricht",
+    contactButton: "Anfrage senden",
+    contactPhone: "Telefon: +421 940 262 533",
 
     /* FOOTER */
     footerText:
@@ -226,6 +245,16 @@ const translations = {
     tarotError:
       "Energije karata trenutno nisu jasne. Molimo pokušaj ponovo.",
 
+    contactTitle: "Kontakt",
+    contactInfoTitle: "✨ Energija koju šalješ vraća ti se…",
+    contactFormTitle: "🌙 Podeli svoje želje i brige sa nama… univerzum sluša kroz nas.",
+    contactName: "Ime *",
+    contactSurname: "Prezime *",
+    contactEmail: "Email *",
+    contactMessage: "Poruka",
+    contactButton: "Pošalji upit",
+    contactPhone: "Telefon: +421 940 262 533",
+
     /* FOOTER */
     footerText:
       "Ovaj sadržaj je namenjen isključivo zabavi."
@@ -299,6 +328,17 @@ const translations = {
     tarotError: "Energie kariet sú momentálne nejasné. Skús to prosím znova.",
     coffeeLoading: "Čítam kávovú usadeninu...",
     coffeeAnalyzing: "Šálky sa analyzujú...",
+    contactTitle: "Kontakt",
+    contactInfoTitle: "✨ Energia, ktorú vysielaš, sa ti vracia…",
+    contactFormTitle: "🌙 Podeľ sa s nami o svoje priania a starosti… vesmír cez nás počúva.",
+    contactName: "Meno *",
+    contactSurname: "Priezvisko *",
+    contactEmail: "Email *",
+    contactMessage: "Správa",
+    contactButton: "Odoslať dopyt",
+    contactPhone: "Telefón: +421 940 262 533",
+
+
     /* FOOTER */
     footerText:
       "Tento obsah slúži len na zábavné účely."
@@ -372,7 +412,15 @@ const translations = {
     tarotLoading: "Kartların enerjileri yorumlanıyor...",
     tarotError:
       "Kartların enerjileri şu anda net değil. Lütfen tekrar dene.",
-
+    contactTitle: "İletişim",
+    contactInfoTitle: "✨ Gönderdiğin enerji sana geri döner…",
+    contactFormTitle: "🌙 Dileklerini ve düşüncelerini bizimle paylaş… evren bizi dinler.",
+    contactName: "Ad *",
+    contactSurname: "Soyad *",
+    contactEmail: "Email *",
+    contactMessage: "Mesaj",
+    contactButton: "Gönder",
+    contactPhone: "Telefon: +421 940 262 533",
 
     footerText: "Bu içerik eğlence amaçlıdır."
   }
@@ -964,7 +1012,7 @@ async function validateImage(file) {
     console.log("TOP LABEL:", data.raw[0]);
   }
 
-  return data.isCup 
+  return data.isCup
 }
 
 /* ==================================================
@@ -1237,3 +1285,50 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
 });
+
+/* ==================================================
+   EMAILJS CONTACT FORM
+================================================== */
+
+// INIT
+(function () {
+  emailjs.init("PC1O6LwZcfB8tnaBh");
+})();
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const btn = form.querySelector("button");
+
+    // LOADING STATE
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+
+    emailjs.sendForm(
+      "service_9l5y32k",   // ✅ SENİN SERVICE
+      "template_tazq4um",   // ✅ BURAYA TEMPLATE ID
+      this
+    )
+    .then(() => {
+      btn.textContent = "✅ Sent!";
+      form.reset();
+    })
+    .catch((error) => {
+      console.error("EMAIL ERROR:", error);
+      btn.textContent = "❌ Error";
+    })
+    .finally(() => {
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = "Send";
+      }, 2000);
+    });
+  });
+
+});
+
