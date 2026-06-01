@@ -1,152 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD12TT6BWK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-GD12TT6BWK');
   </script>
   <meta charset="UTF-8">
   <title>Falloshka – Daily Card</title>
+  <!-- ✅ Favicon (ADD HERE) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="manifest" href="images/site.webmanifest">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="page-tarot page-daily">
 
-<header class="navbar">
-  <a href="index.html" class="brand">
-    <img src="images/logo.jpg" alt="Falloshka Logo" class="logo">
-    <span>Falloshka</span>
-  </a>
+  <header class="navbar">
+    <a href="index.html" class="brand">
+      <img src="images/logo.jpg" alt="Falloshka Logo" class="logo">
+      <span>Falloshka</span>
+    </a>
 
-  <!-- ✅ HAMBURGER -->
+    <!-- ✅ HAMBURGER -->
 
-<button class="hamburger" id="hamburger">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-
-
-  <!-- ✅ NAV -->
- <nav id="navMenu">
-    <a href="index.html" data-i18n="navHome">Home</a>
-    <a href="coffee.html" data-i18n="navCoffee">Coffee Reading</a>
-    <a href="daily-card.html" data-i18n="navDaily">Daily Card</a>
-    <a href="tarot-reading.html" data-i18n="navTarot">Tarot Reading</a>
-    <a href="astro-reading.html" data-i18n="navAstro">Astrological Reading</a>
-    <a href="chat.html" data-i18n="navChat">Chat</a>
-    <a href="#about" data-i18n="navAbout">About</a>
-  </nav>
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
 
-  <select id="languageSelector">
-    <option value="en">EN</option>
-    <option value="tr">TR</option>
-    <option value="de">DE</option>
-    <option value="sr">SR</option>
-    <option value="sk">SK</option>
-  </select>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <h1 data-i18n="dailyHeroTitle">Choose Your Card of the Day</h1>
-  <p data-i18n="dailyHeroText">
-    Focus your intention and intuitively select one card to reveal today’s energy.
-    The card will guide you toward your next revelation.
-  </p>
-</section>
-
-<div class="draw-cta">
-  <button
-    id="drawBtn"
-    type="button"
-    class="primary-btn"
-    data-i18n="tarotShuffleBtn"
-  >
-    Shuffle Cards
-  </button>
-</div>
-
-<!-- TAROT CARDS -->
-<section class="cards tarot-spread">
-
-  <div class="tarot-card">
-    <div class="card-smoke"></div> 
-    <div class="card-inner">
-      
-      <div class="card-back">
-        <img src="images/back-cart 3.png" class="card-fallback" alt="Tarot card back">
-      </div>
-      <div class="card-front"></div>
-    </div>
-  </div>
-
-  <div class="tarot-card">
-    <div class="card-smoke"></div> 
-    <div class="card-inner">
-      
-      <div class="card-back">
-        <img src="images/back-cart 3.png" class="card-fallback" alt="Tarot card back">
-      </div>
-      <div class="card-front"></div>
-    </div>
-  </div>
-
-  <div class="tarot-card">
-    <div class="card-smoke"></div> 
-    <div class="card-inner">
-      
-      <div class="card-back">
-        <img src="images/back-cart 3.png" class="card-fallback" alt="Tarot card back">
-      </div>
-      <div class="card-front"></div>
-    </div>
-  </div>
-
-</section>
-
-<section class="card-names">
-  <button class="card-name-btn hidden" data-index="0"></button>
-  <button class="card-name-btn hidden" data-index="1"></button>
-  <button class="card-name-btn hidden" data-index="2"></button>
-</section>
+    <!-- ✅ NAV -->
+    <nav id="navMenu">
+      <a href="index.html" data-i18n="navHome">Home</a>
+      <a href="coffee.html" data-i18n="navCoffee">Coffee Reading</a>
+      <a href="daily-card.html" data-i18n="navDaily">Daily Card</a>
+      <a href="tarot-reading.html" data-i18n="navTarot">Tarot Reading</a>
+      <a href="astro-reading.html" data-i18n="navAstro">Astrological Reading</a>
+      <a href="chat.html" data-i18n="navChat">Chat</a>
+      <a href="#about" data-i18n="navAbout">About</a>
+    </nav>
 
 
-<!-- RESULT -->
-<section class="result">
-  <h2 data-i18n="readingResultTitle">Your Celestial Narrative</h2>
-  <div class="result-box">
-    <p data-i18n="readingResultText">
-      The energy of the drawn card suggests a time of inner transformation and gentle clarity.
+    <select id="languageSelector">
+      <option value="en">EN</option>
+      <option value="tr">TR</option>
+      <option value="de">DE</option>
+      <option value="sr">SR</option>
+      <option value="sk">SK</option>
+    </select>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1 data-i18n="dailyHeroTitle">Choose Your Card of the Day</h1>
+    <p data-i18n="dailyHeroText">
+      Focus your intention and intuitively select one card to reveal today’s energy.
+      The card will guide you toward your next revelation.
     </p>
-    <p data-i18n="readingResultNote">
-      Remember, this reading reflects possibilities, not certainties.
+  </section>
+
+  <div class="draw-cta">
+    <button id="drawBtn" type="button" class="primary-btn" data-i18n="tarotShuffleBtn">
+      Shuffle Cards
+    </button>
+  </div>
+
+  <!-- TAROT CARDS -->
+  <section class="cards tarot-spread">
+
+    <div class="tarot-card">
+      <div class="card-smoke"></div>
+      <div class="card-inner">
+
+        <div class="card-back">
+          <img src="images/back-cart 3.png" class="card-fallback" alt="Tarot card back">
+        </div>
+        <div class="card-front"></div>
+      </div>
+    </div>
+
+    <div class="tarot-card">
+      <div class="card-smoke"></div>
+      <div class="card-inner">
+
+        <div class="card-back">
+          <img src="images/back-cart 3.png" class="card-fallback" alt="Tarot card back">
+        </div>
+        <div class="card-front"></div>
+      </div>
+    </div>
+
+    <div class="tarot-card">
+      <div class="card-smoke"></div>
+      <div class="card-inner">
+
+        <div class="card-back">
+          <img src="images/back-cart 3.png" class="card-fallback" alt="Tarot card back">
+        </div>
+        <div class="card-front"></div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="card-names">
+    <button class="card-name-btn hidden" data-index="0"></button>
+    <button class="card-name-btn hidden" data-index="1"></button>
+    <button class="card-name-btn hidden" data-index="2"></button>
+  </section>
+
+
+  <!-- RESULT -->
+  <section class="result">
+    <h2 data-i18n="readingResultTitle">Your Celestial Narrative</h2>
+    <div class="result-box">
+      <p data-i18n="readingResultText">
+        The energy of the drawn card suggests a time of inner transformation and gentle clarity.
+      </p>
+      <p data-i18n="readingResultNote">
+        Remember, this reading reflects possibilities, not certainties.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footerText">
+      This content is for entertainment purposes only.
     </p>
-  </div>
-</section>
+    <p>
+      © 2026 Falloshka. All rights reserved.
+    </p>
+  </footer>
 
-<footer>
-  <p data-i18n="footerText">
-    This content is for entertainment purposes only.
-  </p>
-</footer>
-
-<!-- ✅ TEK JS DOSYASI -->
-<script src="main.js"></script>
-<!-- CARD INFO MODAL -->
-<div id="cardModal" class="modal hidden">
-  <div class="modal-content">
-    <button id="closeModal" class="modal-close">×</button>
-    <h3 id="modalTitle"></h3>
-    <p id="modalText"></p>
+  <!-- ✅ TEK JS DOSYASI -->
+  <script src="main.js"></script>
+  <!-- CARD INFO MODAL -->
+  <div id="cardModal" class="modal hidden">
+    <div class="modal-content">
+      <button id="closeModal" class="modal-close">×</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalText"></p>
+    </div>
   </div>
-</div>
 </body>
+
 </html>
