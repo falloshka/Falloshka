@@ -80,6 +80,19 @@ const translations = {
     contactMessage: "Message",
     contactButton: "Send request",
     contactPhone: "Phone: +421 940 262 533",
+    aboutHeroTitle: "About Us",
+
+    aboutHeroText: "A journey into intuition, reflection, and the mysteries within.",
+
+    aboutTitle: "Who We Are",
+    aboutText1: "Falloshka is a space where intuition meets imagination. We do not predict the future—we reflect possibilities.",
+    aboutText2: "Through tarot, coffee readings, and astrological insights, we help you explore your inner world and gain clarity from symbols, energy, and personal reflection.",
+    aboutText3: "Everything you experience here is created to inspire thought, encourage awareness, and guide your personal journey.",
+    aboutNote: "This experience is designed for entertainment and self-reflection purposes only.",
+
+    aboutContactTitle: "Contact & Request",
+    aboutContactDesc: "Tell us in detail about the topic you want a deeper reading for. Let the universe shed light on your future.",
+
 
     /* FOOTER */
     footerText:
@@ -166,6 +179,18 @@ const translations = {
     contactMessage: "Nachricht",
     contactButton: "Anfrage senden",
     contactPhone: "Telefon: +421 940 262 533",
+
+    aboutHeroTitle: "Über Uns",
+    aboutHeroText: "Eine Reise in Intuition, Reflexion und innere Geheimnisse.",
+
+    aboutTitle: "Wer wir sind",
+    aboutText1: "Falloshka ist ein Ort, an dem Intuition auf Vorstellung trifft.",
+    aboutText2: "Durch Tarot, Kaffee-Lesen und astrologische Einblicke helfen wir dir.",
+    aboutText3: "Diese Erfahrung soll Inspiration und Bewusstsein fördern.",
+    aboutNote: "Nur zu Unterhaltungszwecken gedacht.",
+
+    aboutContactTitle: "Kontakt & Anfrage",
+    aboutContactDesc: "Teile uns dein Anliegen detailliert mit, damit wir deine Zukunft besser deuten können.",
 
     /* FOOTER */
     footerText:
@@ -255,6 +280,18 @@ const translations = {
     contactButton: "Pošalji upit",
     contactPhone: "Telefon: +421 940 262 533",
 
+    aboutHeroTitle: "O nama",
+    aboutHeroText: "Putovanje kroz intuiciju i unutrašnje misterije.",
+
+    aboutTitle: "Ko smo mi",
+    aboutText1: "Falloshka spaja intuiciju i maštu.",
+    aboutText2: "Pomažemo ti kroz tarot, kafu i astrologiju.",
+    aboutText3: "Sve je namenjeno ličnom razvoju.",
+    aboutNote: "Samo u zabavne svrhe.",
+
+    aboutContactTitle: "Kontakt & Zahtev",
+    aboutContactDesc: "Opiši detaljno šta želiš da saznaš i univerzum će ti dati smer.",
+
     /* FOOTER */
     footerText:
       "Ovaj sadržaj je namenjen isključivo zabavi."
@@ -338,6 +375,17 @@ const translations = {
     contactButton: "Odoslať dopyt",
     contactPhone: "Telefón: +421 940 262 533",
 
+    aboutHeroTitle: "O nás",
+    aboutHeroText: "Cesta intuície a vnútorného poznania.",
+
+    aboutTitle: "Kto sme",
+    aboutText1: "Falloshka spája intuíciu a predstavivosť.",
+    aboutText2: "Pomáhame ti cez tarot, kávu a astrológiu.",
+    aboutText3: "Zamerané na osobný rozvoj.",
+    aboutNote: "Len na zábavné účely.",
+
+    aboutContactTitle: "Kontakt & Požiadavka",
+    aboutContactDesc: "Napíš nám podrobnosti o tvojej otázke a vesmír ti ukáže smer.",
 
     /* FOOTER */
     footerText:
@@ -421,6 +469,19 @@ const translations = {
     contactMessage: "Mesaj",
     contactButton: "Gönder",
     contactPhone: "Telefon: +421 940 262 533",
+
+    aboutHeroTitle: "Hakkımızda",
+    aboutHeroText: "Sezgi, farkındalık ve içsel keşif yolculuğu.",
+
+    aboutTitle: "Biz Kimiz",
+    aboutText1: "Falloshka, sezgi ile hayal gücünün buluştuğu bir alandır. Geleceği tahmin etmeyiz—olasılıkları yansıtırız.",
+    aboutText2: "Tarot, kahve falı ve astrolojik içerikler ile iç dünyanızı keşfetmenize yardımcı oluruz.",
+    aboutText3: "Buradaki her deneyim farkındalık ve içsel rehberlik içindir.",
+    aboutNote: "Bu deneyim eğlence ve kişisel farkındalık amaçlıdır.",
+
+    aboutContactTitle: "İletişim & Talep",
+    aboutContactDesc: "Öğrenmek istediğiniz gelecek hakkında detaylı bir fal bakılması için bize konu ile ilgili detaylı bilgi verin. Evren size geleceğiniz hakkında ışık tutsun.",
+
 
     footerText: "Bu içerik eğlence amaçlıdır."
   }
@@ -1285,6 +1346,130 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
 });
+/* ===============================
+   SHOOTING STAR SYSTEM
+=============================== */
+
+const container = document.getElementById("meteor-container");
+
+const colors = [
+  { line: "white", glow: "white" },
+  { line: "#c77dff", glow: "#9d4edd" },
+  { line: "#ffb303", glow: "#ffffff" },
+  { line: "#7df9ff", glow: "#00d4ff" }
+];
+
+function createMeteor() {
+  const meteor = document.createElement("div");
+  meteor.classList.add("meteor");
+
+  // RANDOM CONFIG
+  const startY = Math.random() * window.innerHeight * 0.8;
+  const angle = 16;
+  const duration = 13000 + Math.random() * 4000;
+  const color = colors[Math.floor(Math.random() * colors.length)];
+  const hasParticles = Math.random() < 0.5;
+
+  // STYLE
+  meteor.style.top = startY + "px";
+  meteor.style.left = "-150px";
+  meteor.style.transform = `rotate(${angle}deg)`;
+  meteor.style.background = `linear-gradient(90deg, transparent, ${color.line})`;
+  meteor.style.boxShadow = `0 0 8px ${color.glow}`;
+
+  container.appendChild(meteor);
+
+  // START ANIMATION
+  setTimeout(() => {
+    meteor.style.transition = `transform ${duration}ms linear, opacity 0.2s`;
+    meteor.style.opacity = 1;
+    meteor.style.transform = `translate(${window.innerWidth + 200}px, ${startY}px) rotate(${angle}deg)`;
+  }, 50);
+
+  // PARTICLES (only if active)
+  let particleInterval;
+
+  if (hasParticles) {
+    particleInterval = setInterval(() => {
+      createParticle(meteor, color.glow);
+    }, 200); // daha yavaş = daha temiz
+  }
+
+  // 🌀 SWIRL EFFECT (son 1.5 sn)
+  setTimeout(() => {
+    meteor.style.transition = "transform 1.5s ease-out, opacity 1s";
+    meteor.style.transform += " rotate(25deg) scaleX(0.6)";
+  }, duration - 1500);
+
+  // CLEANUP
+  setTimeout(() => {
+    meteor.style.opacity = 0;
+
+    if (particleInterval) {
+      clearInterval(particleInterval);
+    }
+
+    setTimeout(() => {
+      meteor.remove();
+    }, 1000);
+
+  }, duration);
+}
+
+function createParticle(meteor, glow) {
+  const rect = meteor.getBoundingClientRect();
+
+  const particle = document.createElement("div");
+  particle.classList.add("particle");
+
+  particle.style.left = rect.left + "px";
+  particle.style.top = rect.top + "px";
+  particle.style.background = glow;
+  particle.style.boxShadow = `0 0 6px ${glow}`;
+
+  container.appendChild(particle);
+
+  const driftX = (Math.random() - 0.5) * 40;
+  const driftY = (Math.random() - 0.5) * 40;
+
+  setTimeout(() => {
+    particle.style.transition = "all 1s ease-out";
+
+    // 🌀 swirl + küçülme
+    particle.style.transform = `
+      translate(${driftX}px, ${driftY}px)
+      rotate(${Math.random() * 180}deg)
+      scale(0.5)
+    `;
+
+    particle.style.opacity = 0;
+  }, 10);
+
+  setTimeout(() => {
+    particle.remove();
+  }, 1000);
+}
+
+/* ✅ LOOP SYSTEM */
+
+function spawnLoop() {
+
+  const isDouble = Math.random() < 0.2;
+
+  createMeteor();
+
+  if (isDouble) {
+    setTimeout(createMeteor, 300);
+  }
+
+  const delay = 13000 + Math.random() * 7000 + 300;
+  setTimeout(spawnLoop, delay);
+}
+
+// START
+spawnLoop();
+
+
 
 /* ==================================================
    EMAILJS CONTACT FORM
@@ -1304,30 +1489,40 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     const btn = form.querySelector("button");
+     const formType = form.dataset.type;
 
     // LOADING STATE
     btn.disabled = true;
+
+    const originalText = btn.textContent;
     btn.textContent = "Sending...";
+
+    let templateId = "template_tazq4um"; // default (index)
+
+    if (formType === "about") {
+      templateId = "template_zckf7m4"; // ✅ yeni template
+    }
+
 
     emailjs.sendForm(
       "service_9l5y32k",   // ✅ SENİN SERVICE
-      "template_tazq4um",   // ✅ BURAYA TEMPLATE ID
+      templateId,   // ✅ BURAYA TEMPLATE ID
       this
     )
-    .then(() => {
-      btn.textContent = "✅ Sent!";
-      form.reset();
-    })
-    .catch((error) => {
-      console.error("EMAIL ERROR:", error);
-      btn.textContent = "❌ Error";
-    })
-    .finally(() => {
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.textContent = "Send";
-      }, 2000);
-    });
+      .then(() => {
+        btn.textContent = "✅ Sent!";
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("EMAIL ERROR:", error);
+        btn.textContent = "❌ Error";
+      })
+      .finally(() => {
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }, 2000);
+      });
   });
 
 });

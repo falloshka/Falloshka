@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GD12TT6BWK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GD12TT6BWK');
+    </script>
+
+    <meta charset="UTF-8" />
+    <title>About – Falloshka</title>
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico">
+
+    <!-- ✅ Favicon (ADD HERE) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="manifest" href="images/site.webmanifest">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="page-about">
+
+
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    <div id="meteor-container"></div>
+
+ <!-- NAVBAR (Aynı yapı) -->
+    <header class="navbar">
+        <a href="index.html" class="brand">
+            <img src="images/logo.jpg" alt="Falloshka Logo" class="logo">
+            <span>Falloshka</span>
+        </a>
+
+        <!-- ✅ HAMBURGER -->
+
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- ✅ NAV -->
+        <nav id="navMenu">
+            <a href="index.html" data-i18n="navHome">Home</a>
+            <a href="coffee.html" data-i18n="navCoffee">Coffee Reading</a>
+            <a href="daily-card.html" data-i18n="navDaily">Daily Card</a>
+            <a href="tarot-reading.html" data-i18n="navTarot">Tarot Reading</a>
+            <a href="astro-reading.html" data-i18n="navAstro">Astrological Reading</a>
+            <a href="chat.html" data-i18n="navChat">Chat</a>
+            <a href="about.html" data-i18n="navAbout">About</a>
+        </nav>
+        <select id="languageSelector">
+            <option value="en">EN</option>
+            <option value="tr">TR</option>
+            <option value="de">DE</option>
+            <option value="sr">SR</option>
+            <option value="sk">SK</option>
+        </select>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 data-i18n="aboutHeroTitle">About Us</h1>
+            <p data-i18n="aboutHeroText">
+                A journey into intuition, reflection, and the mysteries within.
+            </p>
+        </div>
+    </section>
+
+    <!-- ABOUT CONTENT -->
+    <section class="about-content">
+        <div class="container">
+
+            <h2 data-i18n="aboutTitle">Who We Are</h2>
+
+            <p data-i18n="aboutText1">
+                Falloshka is a space where intuition meets imagination.
+                We do not predict the future—we reflect possibilities.
+            </p>
+
+            <p data-i18n="aboutText2">
+                Through tarot, coffee readings, and astrological insights,
+                we help you explore your inner world and gain clarity from symbols, energy, and personal reflection.
+            </p>
+
+            <p data-i18n="aboutText3">
+                Everything you experience here is created to inspire thought,
+                encourage awareness, and guide your personal journey.
+            </p>
+
+            <p class="note" data-i18n="aboutNote">
+                This experience is designed for entertainment and self-reflection purposes only.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- FORM SECTION -->
+    <section class="contact">
+        <div class="contact-container">
+
+            <h2 class="contact-title" data-i18n="aboutContactTitle">
+                Contact & Request
+            </h2>
+
+            <p style="text-align:center; max-width:700px; margin:auto;" data-i18n="aboutContactDesc">
+                Öğrenmek istediğiniz gelecek hakkında detaylı bir fal bakılması için bize konu ile ilgili detaylı bilgi
+                verin.
+                Evren size geleceğiniz hakkında ışık tutsun.
+            </p>
+
+            <div class="contact-wrapper">
+
+                <div class="contact-form">
+
+                    <h3 data-i18n="contactFormTitle">
+                        🌙 Share your wishes and concerns with us… the universe listens through us.
+                    </h3>
+
+                    <form id="contact-form" data-type="about">
+                        <input type="hidden" name="source" value="about-page">
+
+                        <input type="text" name="first_name" data-i18n-placeholder="contactName" placeholder="Name *"
+                            required>
+
+                        <input type="text" name="last_name" data-i18n-placeholder="contactSurname"
+                            placeholder="Surname *" required>
+
+                        <input type="email" name="email" data-i18n-placeholder="contactEmail" placeholder="Email *"
+                            required>
+
+                        <textarea name="message" data-i18n-placeholder="contactMessage"
+                            placeholder="Message"></textarea>
+
+                        <button type="submit" data-i18n="contactButton">
+                            Send request
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p data-i18n="footerText">
+            Falloshka provides symbolic readings for entertainment only.
+        </p>
+        <p>
+            © 2026 Falloshka. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
